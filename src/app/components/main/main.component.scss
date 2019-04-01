@@ -1,0 +1,23 @@
+.contacts__edit-group, .contacts__name-group-button, .contacts__name-group--item,
+.contacts__surname-group-button, .contacts__city-group-button {
+    display: flex;
+}
+
+.contacts__edit-group--item-left, .contacts__name-group--item-activity-y,
+.contacts__name-group--item-activity-n, .contacts__surname-group--header {
+    float: left;
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.contacts__edit-group--item-right, .contacts__name-group--header-icon-right,
+.contacts__name-group--item-name, .contacts__name-group--header-right {
+    float: right;
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.contacts__activity {
+    display: flex;
+    justify-content: flex-end;
+}

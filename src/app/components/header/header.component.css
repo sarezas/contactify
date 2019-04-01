@@ -1,0 +1,33 @@
+.header__search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__search-bar__search-term {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.header__search-bar__search-term:focus {
+  color: #00B4CC;
+}
+
+.header__search-bar__search-button {
+  float: right;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+/*# sourceMappingURL=header.component.css.map */

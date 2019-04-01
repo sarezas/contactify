@@ -1,0 +1,93 @@
+<div class="container-fluid main">
+  <div class="row main__dashboard">
+    <div class="col-7 main__dashboard--filter-froup">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="nameInput" placeholder="Name" name="searchTerm"
+              [(ngModel)]="searchTerm" name="searchTerm">
+          </div>
+          <div class="form-group col-md-3">
+            <select id="inputState" class="form-control" [(ngModel)]="searchCity" name="searchCity">
+              <option selected>City</option>
+              <option>Hong Kong</option>
+              <option>London</option>
+              <option>Los Angeles</option>
+              <option>Sydney</option>
+              <option>Singapore</option>
+            </select>
+          </div>
+          <div class="form-group col-md-1">
+              <input type="checkbox" id="checkbox" #checkbox (change)="toggleActivity()">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-5 main__dashboard--add-new">add new</div>
+  </div>
+  <div class="row main__contacts">
+    <div class="col-2 main__contacts--detailed-view">detailed contact view</div>
+    <div class="col-10 main__contacts--list">
+      <div class="container contacts">
+        <div class="row contacts__headers">
+          <div class="col-1 contacts__activity"></div>
+          <button class="btn col-2 contacts__name-group-button" (click)="sortByName()">
+            <p class="contacts__name-group--header-right">name</p>
+            <span class="contacts__name-group--header-icon-right" *ngIf="order">
+              <i class="fas fa-arrow-up"></i>
+            </span>
+            <span class="contacts__name-group--header-icon-right" *ngIf="!order">
+              <i class="fas fa-arrow-down"></i>
+            </span>
+          </button>
+          <button class="btn col-2 contacts__surname-group-button">
+            <p class="contacts__surname-group--header">surname</p>
+          </button>
+          <button class="btn col-2 contacts__city-group-button">
+            <p class="contacts__city-group--header">city</p>
+          </button>
+          <div class="col-2 contacts__email-group">
+            <p class="contacts__email-group--header">email</p>
+          </div>
+          <div class="col-2 contacts__phone-group">
+            <p class="contacts__phone-group--header">phone</p>
+          </div>
+          <div class="col-1 contacts__edit-group"></div>
+        </div>
+        <div class="row contacts__wrapper" *ngFor="let contact of cl">
+          <div class="col-1 contacts__activity">
+            <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="contacts__name-group--item-activity-n" *ngIf="!contact.active">
+              <i class="far fa-eye-slash"></i>
+            </span>
+          </div>
+          <div class="col-2 contacts__name-group--item">
+            <p class="contacts__name-group--item-name">{{ contact.name }}</p>
+          </div>
+          <div class="col-2 contacts__surname-group--item">
+            <p>{{ contact.surname }}</p>
+          </div>
+          <div class="col-2 contacts__city-group--item">
+            <p>{{ contact.city }}</p>
+          </div>
+          <div class="col-2 contacts__email-group--item">
+            <p>{{ contact.email }}</p>
+          </div>
+          <div class="col-2 contacts__phone-group--item">
+            <p>{{ contact.phone }}</p>
+          </div>
+          <div class="col-1 contacts__edit-group">
+            <div class="contacts__edit-group--item-left">
+              <i class="fas fa-pencil-alt"></i>
+            </div>
+            <div class="contacts__edit-group--item-right">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
