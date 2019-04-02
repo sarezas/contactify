@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Contact } from '../interfaces/contact';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterName'
 })
-export class FilterPipe implements PipeTransform {
+export class NameFilterPipe implements PipeTransform {
   transform(contacts: Contact[], searchTerm: string): Contact[] {
     if (!searchTerm) {
       return contacts;

@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FilterPipe } from './pipes/filter.pipe';
+import { NameFilterPipe } from './pipes/name-filter.pipe';
+import { CityFilterPipe } from './pipes/city-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    FilterPipe
+    NameFilterPipe,
+    CityFilterPipe
   ],
   imports: [
     BrowserModule,

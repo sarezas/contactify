@@ -1,15 +1,14 @@
 <div class="container-fluid main">
   <div class="row main__dashboard">
     <div class="col-7 main__dashboard--filter-froup">
-      <form>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <input type="text" class="form-control" id="nameInput" placeholder="Name" name="searchTerm"
-              [(ngModel)]="searchTerm" name="searchTerm">
+      <form (ngSubmit)="filterContacts(f)" #f="ngForm">
+        <div class="form-row filter-form">
+          <div class="form-group col-md-3 filter-form__name-input">
+            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="searchName" name="searchName">
           </div>
-          <div class="form-group col-md-3">
-            <select id="inputState" class="form-control" [(ngModel)]="searchCity" name="searchCity">
-              <option selected>City</option>
+          <div class="form-group col-md-3 filter-form__city-input">
+            <select class="form-control" [(ngModel)]="searchCity" name="searchCity" placeholder="City">
+              <option>All</option>
               <option>Hong Kong</option>
               <option>London</option>
               <option>Los Angeles</option>
@@ -17,8 +16,12 @@
               <option>Singapore</option>
             </select>
           </div>
-          <div class="form-group col-md-1">
-              <input type="checkbox" id="checkbox" #checkbox (change)="toggleActivity()">
+          <div class="form-group col-md-1 filter-form__checkbox">
+              <input type="checkbox" id="checkbox" #checkbox>
+              <!-- <input type="checkbox" id="checkbox" #checkbox (change)="toggleActivity()"> -->
+          </div>
+          <div class="form-group col-md-1 filter-form__submit-button">
+            <button type="submit" class="btn btn-outline-dark">filter</button>
           </div>
         </div>
       </form>
@@ -54,7 +57,7 @@
           </div>
           <div class="col-1 contacts__edit-group"></div>
         </div>
-        <div class="row contacts__wrapper" *ngFor="let contact of cl">
+        <div class="row contacts__wrapper" *ngFor="let contact of cl | filterName:searchName">
           <div class="col-1 contacts__activity">
             <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
               <i class="far fa-eye"></i>
