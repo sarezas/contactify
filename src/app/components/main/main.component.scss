@@ -21,3 +21,14 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.contacts__surname-group--item-name, .contacts__city-group--item-name,
+.contacts__email-group--item-name, .contacts__phone-group--item-name,
+.contacts__edit-group--item-left, .contacts__edit-group--item-right {
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.row.contacts__wrapper:hover {
+    background-color: lightblue;
+}

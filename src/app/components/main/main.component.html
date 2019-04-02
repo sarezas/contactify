@@ -31,17 +31,28 @@
     <div class="col-5 main__dashboard--add-new">add new</div>
   </div>
   <div class="row main__contacts">
-    <div class="col-2 main__contacts--detailed-view">detailed contact view</div>
+    <div class="col-2 main__contacts--detailed-view">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ selectedContact.imgUrl }}" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">Name: {{ selectedContact.name }}</p>
+          <p class="card-text">Surnameame: {{ selectedContact.surname }}</p>
+          <p class="card-text">City: {{ selectedContact.city }}</p>
+          <p class="card-text">Email: {{ selectedContact.email }}</p>
+          <p class="card-text">Phone: {{ selectedContact.phone }}</p>
+        </div>
+      </div>
+    </div>
     <div class="col-10 main__contacts--list">
       <div class="container contacts">
         <div class="row contacts__headers">
           <div class="col-1 contacts__activity"></div>
           <button class="btn col-2 contacts__name-group-button" (click)="sortByName()">
             <p class="contacts__name-group--header-right">name</p>
-            <span class="contacts__name-group--header-icon-right" *ngIf="order">
+            <span class="contacts__name-group--header-icon-right" *ngIf="!order">
               <i class="fas fa-arrow-up"></i>
             </span>
-            <span class="contacts__name-group--header-icon-right" *ngIf="!order">
+            <span class="contacts__name-group--header-icon-right" *ngIf="order">
               <i class="fas fa-arrow-down"></i>
             </span>
           </button>
@@ -59,7 +70,8 @@
           </div>
           <div class="col-1 contacts__edit-group"></div>
         </div>
-        <div class="row contacts__wrapper" *ngFor="let contact of cl | filterName:searchName">
+        <div class="row contacts__wrapper" *ngFor="let contact of cl | filterName:searchName;"
+          (click)="showContactDetails(contact)">
           <div class="col-1 contacts__activity">
             <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
               <i class="far fa-eye"></i>
@@ -72,16 +84,16 @@
             <p class="contacts__name-group--item-name">{{ contact.name }}</p>
           </div>
           <div class="col-2 contacts__surname-group--item">
-            <p>{{ contact.surname }}</p>
+            <p class="contacts__surname-group--item-name">{{ contact.surname }}</p>
           </div>
           <div class="col-2 contacts__city-group--item">
-            <p>{{ contact.city }}</p>
+            <p class="contacts__city-group--item-name">{{ contact.city }}</p>
           </div>
           <div class="col-2 contacts__email-group--item">
-            <p>{{ contact.email }}</p>
+            <p class="contacts__email-group--item-name">{{ contact.email }}</p>
           </div>
           <div class="col-2 contacts__phone-group--item">
-            <p>{{ contact.phone }}</p>
+            <p class="contacts__phone-group--item-name">{{ contact.phone }}</p>
           </div>
           <div class="col-1 contacts__edit-group">
             <div class="contacts__edit-group--item-left">

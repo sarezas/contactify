@@ -1,11 +1,12 @@
-.contacts__edit-group, .contacts__name-group-button, .contacts__name-group--item {
+.contacts__edit-group, .contacts__name-group-button, .contacts__name-group--item,
+.contacts__surname-group-button, .contacts__city-group-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .contacts__edit-group--item-left, .contacts__name-group--item-activity-y,
-.contacts__name-group--item-activity-n {
+.contacts__name-group--item-activity-n, .contacts__surname-group--header {
   float: left;
   margin: 5px;
   padding: 2.5px;
@@ -25,5 +26,16 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.contacts__surname-group--item-name, .contacts__city-group--item-name,
+.contacts__email-group--item-name, .contacts__phone-group--item-name,
+.contacts__edit-group--item-left, .contacts__edit-group--item-right {
+  margin: 5px;
+  padding: 2.5px;
+}
+
+.row.contacts__wrapper:hover {
+  background-color: lightblue;
 }
 /*# sourceMappingURL=main.component.css.map */

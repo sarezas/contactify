@@ -5,5 +5,6 @@ export interface Contact {
     city: string;
     email: string;
     phone: string;
-    active: boolean;
+    active?: boolean;
+    imgUrl?: string;
 }

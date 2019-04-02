@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { default as contacts } from '../../../assets/contacts/contacts.json';
@@ -14,7 +14,16 @@ export class MainComponent implements OnInit {
   @Input() al: Contact[] = this.cl.filter(c => c.active === true);
   order = false;
   @ViewChild('checkbox') checkbox: ElementRef;
-  searchCity = 'All';
+  @Input() selectedContact: Contact = {
+    id: null,
+    name: '',
+    surname: '',
+    city: '',
+    email: '',
+    phone: '',
+    active: undefined,
+    imgUrl: '../../assets/images/userpic.jpg'
+  };
 
   constructor() {}
 
@@ -72,5 +81,23 @@ export class MainComponent implements OnInit {
     } else if (checkBox === true && cityInput !== 'All') {
       return this.cl = filteredActiveList;
     }
+  }
+
+  showContactDetails(contact: Contact) {
+    const selectedId: number = contact.id;
+    const selectedName: string = contact.name;
+    const selectedSurname: string = contact.surname;
+    const selectedCity: string = contact.city;
+    const selectedEmail: string = contact.email;
+    const selectedPhone: string = contact.phone;
+    const selectedActive: boolean = contact.active;
+
+    this.selectedContact.id = selectedId;
+    this.selectedContact.name = selectedName;
+    this.selectedContact.surname = selectedSurname;
+    this.selectedContact.city = selectedCity;
+    this.selectedContact.email = selectedEmail;
+    this.selectedContact.phone = selectedPhone;
+    this.selectedContact.active = selectedActive;
   }
 }
