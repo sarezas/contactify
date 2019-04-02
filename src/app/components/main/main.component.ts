@@ -28,10 +28,8 @@ export class MainComponent implements OnInit {
       switch (this.order) {
         case x > y:
           return 1;
-          break;
         case x < y:
           return -1;
-          break;
       }
     });
 
@@ -41,10 +39,8 @@ export class MainComponent implements OnInit {
       switch (this.order) {
         case x > y:
           return 1;
-          break;
         case x < y:
           return -1;
-          break;
       }
     });
 
@@ -55,16 +51,9 @@ export class MainComponent implements OnInit {
     }
   }
 
-  // toggleActivity() {
-  //   if (this.checkbox.nativeElement.checked === true) {
-  //     return this.cl = this.al;
-  //   } else {
-  //     return this.cl = contacts;
-  //   }
-  // }
-
   filterContacts(form: NgForm) {
     const cityInput: string = form.value.searchCity;
+    const checkBox: boolean = form.value.checkbox;
     const cl = contacts.slice();
     const al = this.al.slice();
     const filteredAllContactList: Contact[] = cl.filter((contact: Contact) => {
@@ -74,13 +63,13 @@ export class MainComponent implements OnInit {
       return contact.city.toLowerCase().includes(cityInput.toLowerCase());
     });
 
-    if (this.checkbox.nativeElement.checked === false && cityInput === 'All') {
+    if (checkBox === false && cityInput === 'All') {
       return this.cl = cl;
-    } else if (this.checkbox.nativeElement.checked === true && cityInput === 'All') {
+    } else if (checkBox === true && cityInput === 'All') {
       return this.cl = al;
-    } else if (this.checkbox.nativeElement.checked === false && cityInput !== 'All') {
+    } else if (checkBox === false && cityInput !== 'All') {
       return this.cl = filteredAllContactList;
-    } else if (this.checkbox.nativeElement.checked === true && cityInput !== 'All') {
+    } else if (checkBox === true && cityInput !== 'All') {
       return this.cl = filteredActiveList;
     }
   }

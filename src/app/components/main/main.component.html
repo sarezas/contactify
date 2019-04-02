@@ -16,9 +16,11 @@
               <option>Singapore</option>
             </select>
           </div>
-          <div class="form-group col-md-1 filter-form__checkbox">
-              <input type="checkbox" id="checkbox" #checkbox>
-              <!-- <input type="checkbox" id="checkbox" #checkbox (change)="toggleActivity()"> -->
+          <div class="form-group col-md-1 m-1 filter-form__checkbox">
+            <div class="row p-2">
+              <input type="checkbox" #checkbox ngModel name="checkbox">
+              <p>show active</p>
+            </div>  
           </div>
           <div class="form-group col-md-1 filter-form__submit-button">
             <button type="submit" class="btn btn-outline-dark">filter</button>
