@@ -13,7 +13,9 @@ export class MainComponent implements OnInit {
   @Input() cl: Contact[] = contacts;
   @Input() al: Contact[] = this.cl.filter(c => c.active === true);
   order = false;
+  searchCity = 'All';
   @ViewChild('checkbox') checkbox: ElementRef;
+  @ViewChild('contactDetailsCol') contactDetailsCol: ElementRef;
   @Input() selectedContact: Contact = {
     id: null,
     name: '',
@@ -27,7 +29,9 @@ export class MainComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.contactDetailsCol.nativeElement.style.opacity = '0';
+  }
 
   sortByName() {
     this.order = !this.order;
@@ -74,16 +78,33 @@ export class MainComponent implements OnInit {
 
     if (checkBox === false && cityInput === 'All') {
       return this.cl = cl;
+    } else if (!checkBox && cityInput === 'All') {
+      return this.cl = cl;
     } else if (checkBox === true && cityInput === 'All') {
       return this.cl = al;
     } else if (checkBox === false && cityInput !== 'All') {
       return this.cl = filteredAllContactList;
     } else if (checkBox === true && cityInput !== 'All') {
       return this.cl = filteredActiveList;
+    } else {
+      return this.cl = filteredAllContactList;
     }
   }
 
   showContactDetails(contact: Contact) {
+    this.contactDetailsCol.nativeElement.animate(
+      [
+        {opacity: '0'},
+        {opacity: '1'}
+      ],
+      {
+        duration: 500,
+        delay: 0,
+        fill: 'forwards',
+        easing: 'ease-in'
+      }
+    );
+
     const selectedId: number = contact.id;
     const selectedName: string = contact.name;
     const selectedSurname: string = contact.surname;

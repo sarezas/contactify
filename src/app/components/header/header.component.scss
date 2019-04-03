@@ -1,35 +1,82 @@
+.header {
+  align-items: center;
+  height: 5rem;
+  width: 100vw;
+}
+
+.header__menu {
+  margin: auto auto;
+  justify-content: center;
+}
+
+.header__search-bar-wrapper {
+  margin: auto auto;
+}
+
 .header__search-bar {
     display: flex;
-    // width: 100%;
-    // position: relative
-  }
-  
-  .header__search-bar__search-term {
-    float: left;
-    width: 100%;
-    border: 3px solid #00B4CC;
-    padding: 5px;
-    height: 36px;
-    border-radius: 5px;
-    outline: none;
-    color: #9DBFAF;
-  }
-  
-  .header__search-bar__search-term:focus{
-    color: #00B4CC;
-  }
-  
-  .header__search-bar__search-button {
-    // position: absolute;
-    float: right;  
-    // right: -50px;
-    // width: 40px;
-    height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
-    text-align: center;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-  }
+}
+
+.header__dropdow-menu-wrapper {
+  position: fixed !important;
+  top: 0;
+}
+
+.header__logo--wrapper {
+  display: block;
+  max-height: 3.425rem;
+  color: rgb(160, 153, 153);
+}
+
+.header__logo--icon {
+  position: relative;
+  left: 208px;
+  font-size: .9rem;
+}
+.header__logo--text {
+  font-size: 2.5rem;
+  max-height: 3.125rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.header__menu {
+  background-color: hsl(211, 100%, 50%);
+  border-radius: 25px;
+}
+
+.header__menu-button {
+  border-radius: 0 !important;
+  outline: 0 !important;
+  min-width: 18.6rem !important;
+  text-transform: uppercase;
+}
+
+.header__search-bar {
+  display: flex;
+  padding: 0;
+  // border: 1px solid rgb(170, 170, 170);
+  border-radius: 25px !important;
+}
+
+.header__search-bar__search-term {
+  float: left;
+  width: 280px;
+  height: 2.375rem;
+  padding: 10px 10px;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+}
+
+.header__search-bar__search-button {
+  float: right;  
+  width: 38px;
+  height: 2.375rem;
+  background: rgb(155, 155, 155);
+  outline: none;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+}

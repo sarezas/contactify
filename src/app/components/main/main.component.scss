@@ -1,3 +1,8 @@
+.main__contacts--list {
+    border: 1px solid rgb(212, 211, 211);
+    border-radius: 5px;
+}
+
 .contacts__edit-group, .contacts__name-group-button, .contacts__name-group--item,
 .contacts__surname-group-button, .contacts__city-group-button {
     display: flex;
@@ -26,9 +31,70 @@
 .contacts__email-group--item-name, .contacts__phone-group--item-name,
 .contacts__edit-group--item-left, .contacts__edit-group--item-right {
     margin: 5px;
-    padding: 2.5px;
+    padding: 5px;
 }
 
 .row.contacts__wrapper:hover {
     background-color: lightblue;
+    cursor: pointer;
 }
+
+.row.contacts__wrapper:hover .contacts__edit-group--item-left {
+    border-radius: 5px;
+    // width: 150%;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: rgb(63, 164, 197);
+}
+
+.row.contacts__wrapper:hover .contacts__edit-group--item-right {
+    border-radius: 5px;
+    // width: 150%;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: rgb(63, 164, 197);
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    width: 170px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid rgb(212, 211, 211);
+    margin-top: 20px;
+}
+
+.card-body {
+    font-size: .6vw;
+}
+
+.card-body__header {
+    text-align: end;
+    margin-right: 0 !important;
+    padding-right: 5px !important;
+    flex-shrink: inherit;
+    white-space: nowrap;
+    fill: #000;
+}
+
+.card-body__contact-details {
+    text-align: start;
+    margin-left: 0 !important;
+    padding-left: 5px !important;
+    flex-shrink: inherit;
+    white-space: nowrap;
+    fill: #000;
+}
+
+.main__contacts--detailed-view {
+    transition: visibility 1800ms ease-in;
+}
+// .main__contacts--list {
+//     transform: 800ms ease-in-out;
+// }
