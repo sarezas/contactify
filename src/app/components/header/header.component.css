@@ -90,4 +90,14 @@
   border-radius: 0 25px 25px 0;
   cursor: pointer;
 }
+
+.header__dropdown-menu-wrapper {
+  position: fixed;
+  top: 0;
+  right: -50px;
+}
+
+.header__dropdown-menu-button {
+  border-radius: 0 0 8px 8px !important;
+}
 /*# sourceMappingURL=header.component.css.map */
