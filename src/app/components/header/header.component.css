@@ -55,7 +55,7 @@
 .header__menu-button {
   border-radius: 0 !important;
   outline: 0 !important;
-  min-width: 18.6rem !important;
+  min-width: 18.2rem !important;
   text-transform: uppercase;
 }
 
@@ -69,7 +69,7 @@
 
 .header__search-bar__search-term {
   float: left;
-  width: 280px;
+  width: 268px;
   height: 2.375rem;
   padding: 10px 10px;
   border-radius: 25px 0 0 25px;
@@ -78,7 +78,7 @@
 
 .header__search-bar__search-button {
   float: right;
-  width: 38px;
+  width: 45px;
   height: 2.375rem;
   background: #9b9b9b;
   outline: none;
