@@ -95,6 +95,58 @@
 .main__contacts--detailed-view {
     transition: visibility 1800ms ease-in;
 }
-// .main__contacts--list {
-//     transform: 800ms ease-in-out;
+
+// .filter-form {
+//     margin-right: 18rem !important;
 // }
+
+.filter-form__name-input--wrapper, .filter-form__city-input--wrapper,
+.filter-form__checkbox--wrapper, .filter-form__submit-button--wrapper {
+    max-width: 15.97rem;
+    margin-right: 4rem !important;
+}
+
+.filter-form__name-input, .filter-form__city-input {
+    border-radius: 25px;
+    outline: none;
+}
+
+.filter-form__submit-button {
+    border-radius: 25px;
+    outline: none;
+    text-transform: uppercase;
+    padding: 5px 25px;
+}
+
+.filter-form__checkbox--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.filter-form__checkbox--checker {
+    margin: 0 .5rem 1rem 0;
+}
+
+.main-dashboard__add-new-button {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 25px;
+    margin: 0 0 0 5.65rem;
+    padding: auto auto;
+}
+
+.main-dashboard__add-new-button--icon {
+    float: left;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 0 4.5rem .5rem 0;
+}
+
+.main-dashboard__add-new-button--text {
+    float: right;
+    text-transform: uppercase;
+}

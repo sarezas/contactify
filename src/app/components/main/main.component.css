@@ -116,4 +116,68 @@
   -webkit-transition: visibility 1800ms ease-in;
   transition: visibility 1800ms ease-in;
 }
+
+.filter-form__name-input--wrapper, .filter-form__city-input--wrapper,
+.filter-form__checkbox--wrapper, .filter-form__submit-button--wrapper {
+  max-width: 15.97rem;
+  margin-right: 4rem !important;
+}
+
+.filter-form__name-input, .filter-form__city-input {
+  border-radius: 25px;
+  outline: none;
+}
+
+.filter-form__submit-button {
+  border-radius: 25px;
+  outline: none;
+  text-transform: uppercase;
+  padding: 5px 25px;
+}
+
+.filter-form__checkbox--wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filter-form__checkbox--checker {
+  margin: 0 .5rem 1rem 0;
+}
+
+.main-dashboard__add-new-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 25px;
+  margin: 0 0 0 5.65rem;
+  padding: auto auto;
+}
+
+.main-dashboard__add-new-button--icon {
+  float: left;
+  outline: none;
+  font-size: 1.5rem;
+  padding: 0 4.5rem .5rem 0;
+}
+
+.main-dashboard__add-new-button--text {
+  float: right;
+  text-transform: uppercase;
+}
 /*# sourceMappingURL=main.component.css.map */

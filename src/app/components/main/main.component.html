@@ -1,13 +1,13 @@
 <div class="container-fluid main">
   <div class="row main__dashboard">
-    <div class="col-7 main__dashboard--filter-froup">
+    <div class="col-9 main__dashboard--filter-froup">
       <form (ngSubmit)="filterContacts(f)" #f="ngForm">
         <div class="form-row filter-form">
-          <div class="form-group col-md-3 filter-form__name-input">
-            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="searchName" name="searchName">
+          <div class="form-group col-md-3 filter-form__name-input--wrapper">
+            <input type="text" class="form-control filter-form__name-input" placeholder="Name" [(ngModel)]="searchName" name="searchName">
           </div>
-          <div class="form-group col-md-3 filter-form__city-input">
-            <select class="form-control" [(ngModel)]="searchCity" name="searchCity" placeholder="City">
+          <div class="form-group col-md-3 filter-form__city-input--wrapper">
+            <select class="form-control filter-form__city-input" [(ngModel)]="searchCity" name="searchCity" placeholder="City">
               <option>All</option>
               <option>Hong Kong</option>
               <option>London</option>
@@ -16,19 +16,22 @@
               <option>Singapore</option>
             </select>
           </div>
-          <div class="form-group col-md-1 m-1 filter-form__checkbox">
-            <div class="row p-2">
-              <input type="checkbox" #checkbox ngModel name="checkbox">
-              <p>show active</p>
-            </div>  
+          <div class="form-group col-md-1 m-1 filter-form__checkbox--wrapper">
+            <input class="filter-form__checkbox--checker"  type="checkbox" #checkbox ngModel name="checkbox">
+            <p class="filter-form__checkbox--text">show active</p>
           </div>
-          <div class="form-group col-md-1 filter-form__submit-button">
-            <button type="submit" class="btn btn-outline-dark">filter</button>
+          <div class="form-group col-md-1 filter-form__submit-button--wrapper">
+            <button type="submit" class="btn btn-outline-dark filter-form__submit-button">filter</button>
           </div>
         </div>
       </form>
     </div>
-    <div class="col-5 main__dashboard--add-new">add new</div>
+    <div class="col-2 main__dashboard--add-new-button--wrapper">
+      <button class="btn btn-outline-dark main-dashboard__add-new-button">
+        <i class="fas fa-plus-circle main-dashboard__add-new-button--icon"></i>
+        <p class="main-dashboard__add-new-button--text">add new contact</p>
+      </button>
+    </div>
   </div>
   <div class="row main__contacts">
     <div class="col-2 main__contacts--detailed-view" #contactDetailsCol>
