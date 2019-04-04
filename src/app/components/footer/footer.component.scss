@@ -1,0 +1,14 @@
+.footer__left--dashboard-selection {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.footer__center-sync--left, .footer__center-help-center--left {
+    font-size: 3rem;
+}
+
+.footer__center-sync--right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
