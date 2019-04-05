@@ -6,44 +6,55 @@
         <p class="header__logo--text">contactify</p>
       </div>
     </div>
-    <div class="col-6 header__menu--wrapper">
-      <div class="row header__menu">
-        <button class="btn btn-primary col-3 header__menu-button button__dashboard">dashboard</button>
-        <button class="btn btn-primary col-3 header__menu-button button__contacts">contacts</button>
-        <button class="btn btn-primary col-3 header__menu-button button__notifications">notifications</button>
-      </div>
-    </div>
-    <div class="col-2 header__search-bar">
-      <form role="search">
-        <input type="text" class="form-control header__search-bar__search-term" placeholder="Search">
-        <button type="submit" class="btn header__search-bar__search-button">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
-    </div>
-    <div class="col-2 header__dropdown-menu-wrapper">
-      <div class="dropdown header__dropdown-menu">
-        <button class="btn btn-secondary header__dropdown-menu-button dropdown-toggle" type="button" id="dropdownMenu2"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Jorah Mormont
-        </button>
-        <div class="dropdown-menu header__dropdown-menu-selection" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
-            <i class="fas fa-users"></i>
-            Groups
+    <div class="col-10 header__menu--wrapper">
+      <div class="row header">
+        <div class="col-6 header__menu">
+          <button class="col-4 btn btn-primary
+                header__menu-button button__dashboard">
+            dashboard
           </button>
-          <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
-            <i class="fas fa-comments"></i>
-            Frequently contacted
+          <button class="col-4 btn btn-primary
+                header__menu-button button__contacts">
+            contacts
           </button>
-          <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
-            <i class="fas fa-wrench"></i>
-            Preferences
+          <button class="col-4 btn btn-primary
+                header__menu-button button__notifications">
+            notifications
           </button>
-          <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
-            <i class="fas fa-power-off"></i>
-            Log out
-          </button>
+        </div>
+        <div class="col-3 header__search-bar">
+          <form role="search">
+            <input type="text" class="form-control header__search-bar__search-term" placeholder="Search">
+            <button type="submit" class="btn header__search-bar__search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="col-3 header__dropdown-menu-wrapper">
+          <div class="dropdown header__dropdown-menu">
+            <button class="btn btn-secondary header__dropdown-menu-button dropdown-toggle" type="button"
+              id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Jorah Mormont
+            </button>
+            <div class="dropdown-menu header__dropdown-menu-selection" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
+                <i class="fas fa-users"></i>
+                Groups
+              </button>
+              <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
+                <i class="fas fa-comments"></i>
+                Frequently contacted
+              </button>
+              <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
+                <i class="fas fa-wrench"></i>
+                Preferences
+              </button>
+              <button class="dropdown-item header__dropdown-menu-selection-item" type="button">
+                <i class="fas fa-power-off"></i>
+                Log out
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
