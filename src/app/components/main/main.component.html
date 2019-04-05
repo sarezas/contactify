@@ -1,13 +1,13 @@
 <div class="container-fluid main">
     <div class="row main__dashboard">
-        <div class="col-9 main__dashboard--filter-froup">
+        <div class="col-sm-9 col-md-9 col-lg-9 main__dashboard--filter-froup">
             <form (ngSubmit)="filterContacts(f)" #f="ngForm">
                 <div class="form-row filter-form">
-                    <div class="form-group col-md-3 filter-form__name-input--wrapper">
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3 filter-form__name-input--wrapper">
                         <input type="text" class="form-control filter-form__name-input" placeholder="Name"
                             [(ngModel)]="searchName" name="searchName">
                     </div>
-                    <div class="form-group col-md-3 filter-form__city-input--wrapper">
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3 filter-form__city-input--wrapper">
                         <select class="form-control filter-form__city-input" [(ngModel)]="searchCity" name="searchCity"
                             placeholder="City">
                             <option>All</option>
@@ -18,17 +18,17 @@
                             <option>Singapore</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-1 m-1 filter-form__checkbox--wrapper">
+                    <div class="form-group col-sm-1 col-md-1 col-lg-1 m-1 filter-form__checkbox--wrapper">
                         <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox">
                         <p class="filter-form__checkbox--text">show active</p>
                     </div>
-                    <div class="form-group col-md-1 filter-form__submit-button--wrapper">
+                    <div class="form-group col-sm-1 col-md-1 col-lg-1 filter-form__submit-button--wrapper">
                         <button type="submit" class="btn btn-outline-dark filter-form__submit-button">filter</button>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-2 main__dashboard--add-new-button--wrapper">
+        <div class="col-sm-2 col-md-2 col-lg-2 main__dashboard--add-new-button--wrapper">
             <button class="btn btn-outline-dark main-dashboard__add-new-button">
                 <i class="fas fa-plus-circle main-dashboard__add-new-button--icon"></i>
                 <p class="main-dashboard__add-new-button--text">add new contact</p>
@@ -36,18 +36,18 @@
         </div>
     </div>
     <div class="row main__contacts">
-        <div class="col-2 main__contacts--detailed-view" #contactDetailsCol>
+        <div class="col-sm-2 col-md-2 col-lg-2 main__contacts--detailed-view" #contactDetailsCol>
             <div class="card" style="max-width: 15.97rem;">
                 <img src="{{ selectedContact.imgUrl }}" class="card-img-top">
                 <div class="row card-body" style="width: 16rem;">
-                    <div class="col-5 card-body__header">
+                    <div class="col-sm-5 col-md-5 col-lg-5 card-body__header">
                         <p class="card-text">Name:</p>
                         <p class="card-text">Surname:</p>
                         <p class="card-text">City:</p>
                         <p class="card-text">Email:</p>
                         <p class="card-text">Phone:</p>
                     </div>
-                    <div class="col-7 card-body__contact-details">
+                    <div class="col-sm-7 col-md-7 col-lg-7 card-body__contact-details">
                         <p class="card-text">{{ selectedContact.name }}</p>
                         <p class="card-text">{{ selectedContact.surname }}</p>
                         <p class="card-text">{{ selectedContact.city }}</p>
@@ -57,10 +57,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-9 main__contacts--list">
+        <div class="col-sm-9 col-md-9 col-lg-9 main__contacts--list">
             <div class="row contacts__headers">
-                <div class="col-1 contacts__activity"></div>
-                <button class="btn col-2 contacts__name-group-button" (click)="sortByName()">
+                <div class="col-sm-1 col-md-1 col-lg-1 contacts__activity"></div>
+                <button class="btn col-sm-2 col-md-2 col-lg-2 contacts__name-group-button" (click)="sortByName()">
                     <p class="contacts__name-group--header-right">name</p>
                     <span class="contacts__name-group--header-icon-right" *ngIf="!order">
                         <i class="fas fa-arrow-up"></i>
@@ -69,23 +69,23 @@
                         <i class="fas fa-arrow-down"></i>
                     </span>
                 </button>
-                <div class="col-2 contacts__surname-group-button">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__surname-group-button">
                     <p class="contacts__surname-group--header">surname</p>
                 </div>
-                <div class="col-2 contacts__city-group-button">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__city-group-button">
                     <p class="contacts__city-group--header">city</p>
                 </div>
-                <div class="col-2 contacts__email-group">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__email-group">
                     <p class="contacts__email-group--header">email</p>
                 </div>
-                <div class="col-2 contacts__phone-group">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__phone-group">
                     <p class="contacts__phone-group--header">phone</p>
                 </div>
-                <div class="col-1 contacts__edit-group"></div>
+                <div class="col-sm-1 col-md-1 col-lg-1 contacts__edit-group"></div>
             </div>
             <div class="row contacts__wrapper" *ngFor="let contact of cl | filterName:searchName;"
                 (click)="showContactDetails(contact)">
-                <div class="col-1 contacts__activity">
+                <div class="col-sm-1 col-md-1 col-lg-1 contacts__activity">
                     <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
                         <i class="far fa-eye"></i>
                     </span>
@@ -93,22 +93,22 @@
                         <i class="far fa-eye-slash"></i>
                     </span>
                 </div>
-                <div class="col-2 contacts__name-group--item">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__name-group--item">
                     <p class="contacts__name-group--item-name">{{ contact.name }}</p>
                 </div>
-                <div class="col-2 contacts__surname-group--item">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__surname-group--item">
                     <p class="contacts__surname-group--item-name">{{ contact.surname }}</p>
                 </div>
-                <div class="col-2 contacts__city-group--item">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__city-group--item">
                     <p class="contacts__city-group--item-name">{{ contact.city }}</p>
                 </div>
-                <div class="col-2 contacts__email-group--item">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__email-group--item">
                     <p class="contacts__email-group--item-name">{{ contact.email }}</p>
                 </div>
-                <div class="col-2 contacts__phone-group--item">
+                <div class="col-sm-2 col-md-2 col-lg-2 contacts__phone-group--item">
                     <p class="contacts__phone-group--item-name">{{ contact.phone }}</p>
                 </div>
-                <div class="col-1 contacts__edit-group">
+                <div class="col-sm-1 col-md-1 col-lg-1 contacts__edit-group">
                     <div class="contacts__edit-group--item-left">
                         <i class="fas fa-pencil-alt"></i>
                     </div>
