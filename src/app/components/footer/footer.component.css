@@ -104,6 +104,12 @@
   }
 }
 
+@media (min-width: 1366px) {
+  .footer__wrapper {
+    padding: 0 4em;
+  }
+}
+
 @media (min-width: 1440px) {
   .footer__wrapper {
     padding: 0 8em;

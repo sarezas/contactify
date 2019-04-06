@@ -59,7 +59,6 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9 main__contacts--list">
             <div class="row contacts__headers">
-                <!-- <div class="col-sm-1 col-md-1 col-lg-1 contacts__activity"></div> -->
                 <button class="btn col-sm-2 col-md-2 col-lg-2 contacts__header-item
                     contacts__header-button" (click)="sortByName()">
                     <p class="header__button-text--left">name</p>
@@ -86,14 +85,6 @@
             </div>
             <div class="row contacts__output" *ngFor="let contact of cl | filterName:searchName;"
                 (click)="showContactDetails(contact)" style="height: 39.5px">
-                <!-- <div class="col-sm-1 col-md-1 col-lg-1 contacts__activity"> -->
-                    <!-- <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
-                        <i class="far fa-eye"></i>
-                    </span>
-                    <span class="contacts__name-group--item-activity-n" *ngIf="!contact.active">
-                        <i class="far fa-eye-slash"></i>
-                    </span> -->
-                <!-- </div> -->
                 <div class="col-sm-2 col-md-2 col-lg-2 contacts__group-item">
                     <div class="col-sm-1 col-md-1 col-lg-1 contacts__activity">
                         <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">

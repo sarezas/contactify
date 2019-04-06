@@ -257,6 +257,20 @@
   }
 }
 
+@media (min-width: 1366px) {
+  .filter-form__name-input--wrapper {
+    width: 24rem;
+    margin-right: 2.5rem;
+  }
+  .dashboard__add-new-button--wrapper {
+    width: 24rem;
+    padding-left: 8rem;
+  }
+  .main__wrapper {
+    padding: 0 4em;
+  }
+}
+
 @media (min-width: 1440px) {
   .filter-form__name-input--wrapper {
     width: 22rem;
@@ -264,7 +278,7 @@
   }
   .dashboard__add-new-button--wrapper {
     width: 22rem;
-    padding-left: 7.65rem;
+    padding-left: 7.8rem;
   }
   .main__wrapper {
     padding: 0 8em;

@@ -1,22 +1,29 @@
-$laptop-s: 1024px;
-$laptop-l: 1440px;
-$desktop: 1920px;
+$desktop-s: 1024px;
+$desktop-m: 1366px;
+$desktop-l: 1440px;
+$desktop-xl: 1920px;
 
 
-@mixin laptop-s {
-    @media (min-width: #{$laptop-s}) {
+@mixin desktop-s {
+    @media (min-width: #{$desktop-s}) {
         @content;
     }
 }
 
-@mixin laptop-l {
-  @media (min-width: #{$laptop-l}) {
+@mixin desktop-m {
+    @media (min-width: #{$desktop-m}) {
+        @content;
+    }
+}
+
+@mixin desktop-l {
+  @media (min-width: #{$desktop-l}) {
       @content;
   }
 }
 
-@mixin desktop {
-    @media (min-width: #{$desktop}) {
+@mixin desktop-xl {
+    @media (min-width: #{$desktop-xl}) {
         @content;
     }
 }
@@ -236,13 +243,29 @@ $desktop: 1920px;
     font-size: .8em;
 }
 
-@include laptop-s {
+@include desktop-s {
     .main__wrapper {
         padding: 0 2em;
     }
 }
 
-@include laptop-l {
+@include desktop-m {
+    .filter-form__name-input--wrapper {
+        width: 24rem;
+        margin-right: 2.5rem; 
+    }
+
+    .dashboard__add-new-button--wrapper {
+        width: 24rem;
+        padding-left: 8rem;
+    } 
+
+    .main__wrapper {
+        padding: 0 4em;
+    }
+}
+
+@include desktop-l {
     .filter-form__name-input--wrapper {
         width: 22rem;
         margin-right: 2.5rem; 
@@ -250,7 +273,7 @@ $desktop: 1920px;
 
     .dashboard__add-new-button--wrapper {
         width: 22rem;
-        padding-left: 7.65rem;
+        padding-left: 7.8rem;
     } 
 
     .main__wrapper {
@@ -258,7 +281,7 @@ $desktop: 1920px;
     }
 } 
 
-@include desktop {
+@include desktop-xl {
     .main__wrapper {
       padding: 0 16em;
     }

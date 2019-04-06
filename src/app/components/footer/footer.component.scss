@@ -1,21 +1,28 @@
-$laptop-s: 1024px;
-$laptop-l: 1440px;
-$desktop: 1920px;
+$desktop-s: 1024px;
+$desktop-m: 1366px;
+$desktop-l: 1440px;
+$desktop-xl: 1920px;
 
-@mixin laptop-s {
-    @media (min-width: #{$laptop-s}) {
+@mixin desktop-s {
+    @media (min-width: #{$desktop-s}) {
         @content;
     }
 }
 
-@mixin laptop-l {
-  @media (min-width: #{$laptop-l}) {
+@mixin desktop-m {
+    @media (min-width: #{$desktop-m}) {
+        @content;
+    }
+  }
+
+@mixin desktop-l {
+  @media (min-width: #{$desktop-l}) {
       @content;
   }
 }
 
-@mixin desktop {
-    @media (min-width: #{$desktop}) {
+@mixin desktop-xl {
+    @media (min-width: #{$desktop-xl}) {
         @content;
     }
 }
@@ -94,18 +101,25 @@ $desktop: 1920px;
     padding: .75rem .25rem .75rem .25rem;
 }
 
-@include laptop-s {
+@include desktop-s {
     .footer__wrapper {
         padding: 0 2em;
     }
 }
-@include laptop-l {
+
+@include desktop-m {
+    .footer__wrapper {
+        padding: 0 4em;
+    }
+}
+
+@include desktop-l {
     .footer__wrapper {
         padding: 0 8em;
     }
 }
 
-@include desktop {
+@include desktop-xl {
     .footer__wrapper {
       padding: 0 16em;
     }
