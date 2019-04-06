@@ -1,32 +1,63 @@
+$laptop-s: 1024px;
+$laptop-l: 1440px;
+$desktop: 1920px;
+
+@mixin laptop-s {
+    @media (min-width: #{$laptop-s}) {
+        @content;
+    }
+}
+
+@mixin laptop-l {
+  @media (min-width: #{$laptop-l}) {
+      @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+      @content;
+  }
+}
+
+.header__wrapper {
+  padding: 0 1em;
+}
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   height: 6rem;
 }
 
 .header__logo--wrapper {
-  display: block;
-  align-items: flex-end;
-  max-height: 3.425rem;
+  display: flex;
+  padding-left: 0;
+  flex-grow: 2;
+  align-items: flex-start;
+  // max-height: 3.425rem;
   color: rgb(160, 153, 153);
 }
 
 .header__logo {
-  padding: auto auto;
-  margin: auto auto;
+  max-width: 18rem;
 }
 
 .header__logo--icon {
   position: relative;
-  left: 14.55em;
-  font-size: .75vw;
+  font-size: .65em;
 }
+
 .header__logo--text {
-  font-size: 2.1vw;
+  font-size: 2em;
   max-height: 3.125rem;
   font-weight: bolder;
   text-transform: uppercase;
+}
+
+.header__menu {
+  padding-left: 0;
 }
 
 .header__menu-button {
@@ -34,7 +65,7 @@
   outline: 0 !important;
   text-transform: uppercase;
   max-height: 2.375rem !important;
-  font-size: .95vw;
+  font-size: .9rem;
 }
 
 .button__dashboard {
@@ -71,10 +102,9 @@
 }
 
 .header__dropdown-menu-wrapper {
-  position: absolute !important;
-  top: -29px;
-  right: 0;
-  left: 64.2vw;
+  position: relative;
+  top: -2em;
+  right: -1.2em;
 }
 
 .header__dropdown-menu-button {
@@ -84,4 +114,46 @@
 .header__dropdown-menu-selection-item {
   font-size: 1rem;
   justify-content: space-between;
+}
+
+@include laptop-s {
+  .header__logo {
+    margin: .7rem 0 0 0;
+  }
+
+  .header__logo--icon {
+    left: 15.95em;
+  }
+
+  .header__search-bar {
+    padding-left: 0;
+  }
+
+  .header__wrapper {
+    padding: 0 2em;
+  }
+}
+
+@include laptop-l {
+  .header__logo {
+    margin: .7rem 0 0 0;
+  }
+
+  .header__logo--icon {
+    left: 15.95em;
+  }
+
+  .header__dropdown-menu-wrapper {
+    right: -7em;
+  }
+
+  .header__wrapper {
+    padding: 0 8em;
+  }
+}
+
+@include desktop {
+  .header__wrapper {
+    padding: 0 16em;
+  }
 }

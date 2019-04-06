@@ -1,6 +1,28 @@
+$laptop-s: 1024px;
+$laptop-l: 1440px;
+$desktop: 1920px;
+
+@mixin laptop-s {
+    @media (min-width: #{$laptop-s}) {
+        @content;
+    }
+}
+
+@mixin laptop-l {
+  @media (min-width: #{$laptop-l}) {
+      @content;
+  }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
 .footer__wrapper {
     height: 12rem;
-    padding: 2rem 0 0 0;
+    padding: 0 1em;
 }
 
 .footer__left, .footer__center, .footer__right {
@@ -53,7 +75,7 @@
 
 .footer__center-sync--left, .footer__center-sync--center, 
 .footer__center-help-center--left, .footer__center-help-center--right {
-    // border: 1px solid gray;
+    border: 1px solid gray;
     justify-content: center;
     align-items: center;
 }
@@ -71,3 +93,20 @@
 .footer__center-sync--right-text {
     padding: .75rem .25rem .75rem .25rem;
 }
+
+@include laptop-s {
+    .footer__wrapper {
+        padding: 0 2em;
+    }
+}
+@include laptop-l {
+    .footer__wrapper {
+        padding: 0 8em;
+    }
+}
+
+@include desktop {
+    .footer__wrapper {
+      padding: 0 16em;
+    }
+  }

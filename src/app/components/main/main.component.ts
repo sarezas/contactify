@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.contactDetailsCol.nativeElement.style.opacity = '0';
+    // this.contactDetailsCol.nativeElement.style.opacity = '0';
   }
 
   sortByName() {
@@ -92,18 +92,18 @@ export class MainComponent implements OnInit {
   }
 
   showContactDetails(contact: Contact) {
-    this.contactDetailsCol.nativeElement.animate(
-      [
-        {opacity: '0'},
-        {opacity: '1'}
-      ],
-      {
-        duration: 500,
-        delay: 0,
-        fill: 'forwards',
-        easing: 'ease-in'
-      }
-    );
+    // this.contactDetailsCol.nativeElement.animate(
+    //   [
+    //     {opacity: '0'},
+    //     {opacity: '1'}
+    //   ],
+    //   {
+    //     duration: 500,
+    //     delay: 0,
+    //     fill: 'forwards',
+    //     easing: 'ease-in'
+    //   }
+    // );
 
     const selectedId: number = contact.id;
     const selectedName: string = contact.name;

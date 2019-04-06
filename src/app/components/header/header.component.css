@@ -1,3 +1,7 @@
+.header__wrapper {
+  padding: 0 1em;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5,37 +9,43 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 6rem;
 }
 
 .header__logo--wrapper {
-  display: block;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  max-height: 3.425rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   color: #a09999;
 }
 
 .header__logo {
-  padding: auto auto;
-  margin: auto auto;
+  max-width: 18rem;
 }
 
 .header__logo--icon {
   position: relative;
-  left: 14.55em;
-  font-size: .75vw;
+  font-size: .65em;
 }
 
 .header__logo--text {
-  font-size: 2.1vw;
+  font-size: 2em;
   max-height: 3.125rem;
   font-weight: bolder;
   text-transform: uppercase;
+}
+
+.header__menu {
+  padding-left: 0;
 }
 
 .header__menu-button {
@@ -43,7 +53,7 @@
   outline: 0 !important;
   text-transform: uppercase;
   max-height: 2.375rem !important;
-  font-size: .95vw;
+  font-size: .9rem;
 }
 
 .button__dashboard {
@@ -85,10 +95,9 @@
 }
 
 .header__dropdown-menu-wrapper {
-  position: absolute !important;
-  top: -29px;
-  right: 0;
-  left: 64.2vw;
+  position: relative;
+  top: -2em;
+  right: -1.2em;
 }
 
 .header__dropdown-menu-button {
@@ -100,5 +109,41 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .header__logo {
+    margin: .7rem 0 0 0;
+  }
+  .header__logo--icon {
+    left: 15.95em;
+  }
+  .header__search-bar {
+    padding-left: 0;
+  }
+  .header__wrapper {
+    padding: 0 2em;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header__logo {
+    margin: .7rem 0 0 0;
+  }
+  .header__logo--icon {
+    left: 15.95em;
+  }
+  .header__dropdown-menu-wrapper {
+    right: -7em;
+  }
+  .header__wrapper {
+    padding: 0 8em;
+  }
+}
+
+@media (min-width: 1920px) {
+  .header__wrapper {
+    padding: 0 16em;
+  }
 }
 /*# sourceMappingURL=header.component.css.map */
