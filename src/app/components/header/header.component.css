@@ -152,10 +152,10 @@
 
 @media (min-width: 1920px) {
   .header__dropdown-menu--wrapper {
-    right: -7em;
+    right: -3.5em;
   }
   .header__wrapper {
-    padding: 0 16em;
+    padding: 0 26em;
   }
 }
 /*# sourceMappingURL=header.component.css.map */

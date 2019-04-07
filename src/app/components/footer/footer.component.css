@@ -1,10 +1,12 @@
 .footer__wrapper {
-  height: 12rem;
+  height: 6rem;
   padding: 0 1em;
+  font-size: .85em;
+  white-space: nowrap;
 }
 
 .footer__left, .footer__center, .footer__right {
-  height: 12rem;
+  height: 6rem;
   width: auto;
 }
 
@@ -16,6 +18,11 @@
   -webkit-box-direction: normal !important;
       -ms-flex-direction: column !important;
           flex-direction: column !important;
+  height: 5rem;
+}
+
+.footer__left--copyright {
+  height: 1rem;
 }
 
 .copyright__list-group--item {
@@ -23,19 +30,21 @@
 }
 
 .contacts-menu__list {
-  margin-left: 1.2vw;
+  margin-left: 2.5rem;
 }
 
 .dashboard-selection__list-group, .footer__left--copyright {
-  padding: 0 0 0 1rem;
+  padding: 0 0 0 .5rem;
 }
 
 .footer__center-sync, .footer__center-help-center {
-  height: 6rem;
+  height: 3rem;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .footer__center-sync--left, .footer__center-help-center--left {
-  font-size: 3rem;
+  font-size: 2em;
 }
 
 .footer__center-sync--right {
@@ -57,6 +66,7 @@
 .list-group-item {
   border: none !important;
   text-decoration: underline;
+  padding: .25rem .5rem;
   cursor: pointer;
 }
 
@@ -67,13 +77,16 @@
 
 .footer__center-sync--left, .footer__center-sync--center,
 .footer__center-help-center--left, .footer__center-help-center--right {
-  border: 1px solid gray;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.footer__center-sync--center, .footer__center-help-center--right {
+  padding-left: 0;
 }
 
 .footer__center-sync--center {
@@ -94,13 +107,9 @@
   display: flex;
 }
 
-.footer__center-sync--right-text {
-  padding: .75rem .25rem .75rem .25rem;
-}
-
 @media (min-width: 1024px) {
   .footer__wrapper {
-    padding: 0 2em;
+    padding: 2em 0 0 2em;
   }
 }
 
@@ -118,7 +127,7 @@
 
 @media (min-width: 1920px) {
   .footer__wrapper {
-    padding: 0 16em;
+    padding: 4em 0 0 26em;
   }
 }
 /*# sourceMappingURL=footer.component.css.map */

@@ -43,7 +43,6 @@ $desktop-xl: 1920px;
   padding-left: 0;
   flex-grow: 2;
   align-items: flex-start;
-  // max-height: 3.425rem;
   color: rgb(160, 153, 153);
 }
 
@@ -171,10 +170,10 @@ $desktop-xl: 1920px;
 
 @include desktop-xl {
   .header__dropdown-menu--wrapper {
-    right: -7em;
+    right: -3.5em;
   }
 
   .header__wrapper {
-    padding: 0 16em;
+    padding: 0 26em;
   }
 }
