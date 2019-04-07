@@ -25,13 +25,13 @@
                         <p class="filter-form__checkbox--text">show active</p>
                     </div>
                     <div class="col-md-2 filter-form__submit-button--wrapper">
-                        <button type="submit" class="btn btn-outline-dark filter-form__submit-button">filter</button>
+                        <button type="submit" class="btn filter-form__submit-button">filter</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="col-md-3 dashboard__add-new-button--wrapper">
-            <button class="btn btn-outline-dark dashboard__add-new-button">
+            <button class="btn dashboard__add-new-button">
                 <i class="fas fa-plus-circle dashboard__add-new-button--icon"></i>
                 <p class="dashboard__add-new-button--text">add new contact</p>
             </button>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-md-9 main__contacts--list">
             <div class="row contacts__headers">
-                <button class="btn col-md-2 contacts__header-item
+                <div class="col-md-2 contacts__header-item header--name
                     contacts__header-button" (click)="sortByName()">
                     <p class="header__button-text--left">name</p>
                     <span class="header__button-icon--right" *ngIf="!order">
@@ -72,20 +72,20 @@
                     <span class="header__button-icon--right" *ngIf="order">
                         <i class="fas fa-arrow-down"></i>
                     </span>
-                </button>
-                <div class="col-md-2 contacts__header-item">
-                    <p class="contacts__surname-group--header">surname</p>
                 </div>
-                <div class="col-md-2 contacts__header-item">
-                    <p class="contacts__city-group--header">city</p>
+                <div class="col-md-2 contacts__header-item header--surname">
+                    <p class="contacts__header-item--text">surname</p>
                 </div>
-                <div class="col-md-3 contacts__header-item">
-                    <p class="contacts__email-group--header">email</p>
+                <div class="col-md-2 contacts__header-item header--city">
+                    <p class="contacts__header-item--text">city</p>
                 </div>
-                <div class="col-md-2 contacts__header-item">
-                    <p class="contacts__phone-group--header">phone</p>
+                <div class="col-md-3 contacts__header-item header--email">
+                    <p class="contacts__header-item--text">email</p>
                 </div>
-                <div class="col-md-1 contacts__header-item"></div>
+                <div class="col-md-2 contacts__header-item header--phone">
+                    <p class="contacts__header-item--text">phone</p>
+                </div>
+                <div class="col-md-1 contacts__header-item header--edit"></div>
             </div>
             <div class="row contacts__output" *ngFor="let contact of cl | filterName:searchName;"
                 (click)="showContactDetails(contact)" style="height: 39.5px">

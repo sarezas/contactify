@@ -7,6 +7,10 @@
   color: white;
 }
 
+.footer {
+  padding-top: 2rem;
+}
+
 .footer__left, .footer__center, .footer__right {
   height: 6rem;
   width: auto;
