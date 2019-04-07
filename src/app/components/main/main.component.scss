@@ -29,8 +29,8 @@ $desktop-xl: 1920px;
 }
 
 .borders {
-    border: 1px solid white;
-    outline: 1px solid gray;
+    border: 2px solid rgba(54, 54, 54, 0.788) !important;
+    box-shadow: 0px 0px 0px .5px #fff !important;
 }
 
 .dashboard__wrapper {
@@ -38,7 +38,7 @@ $desktop-xl: 1920px;
     height: 5rem;
     align-items: center;
     justify-content: space-between; 
-    background: linear-gradient(0.55turn, rgb(2, 129, 123), rgb(0, 89, 141));
+    background: linear-gradient(0.55turn, rgb(0, 89, 141), rgb(2, 129, 123));
 }
 
 .dashboard {
@@ -183,6 +183,7 @@ $desktop-xl: 1920px;
 
 .filter-form__checkbox--text {
     white-space: nowrap;
+    color: white;
 }
 
 .filter-form__name-input--wrapper {
@@ -201,11 +202,14 @@ $desktop-xl: 1920px;
 }
 
 .filter-form__submit-button {
+    border: 2px solid rgba(206, 206, 206, 0.61);
     border-radius: 25px;
     outline: none;
     text-transform: uppercase;
     padding: 7.5px 25px;
-    font-size: 1em;
+    font-size: .9em;
+    font-weight: 600;
+    color: white;
 }
 
 .filter-form__checkbox--wrapper {
@@ -216,16 +220,27 @@ $desktop-xl: 1920px;
     font-size: .9em;
 }
 
+.checkbox__border {
+    height: 16px;
+    width: 16px;
+    margin: 0 .5rem 1rem 0;
+    background-color: transparent;
+    border-radius: 2px;
+    border: 2px solid rgba(54, 54, 54, 0.788);
+    box-shadow: 0px 0px 0px .5px #fff;
+}
+
 .filter-form__checkbox--checker {
+    position: relative;
+    bottom: 1px;
+    background-color: white;
+    outline: none !important;
+    border: none !important;
     margin: 0 .5rem 1rem 0;
 }
 
 .filter-form__checkbox--text {
     padding: .25rem .25rem;
-}
-
-.filter-form__submit-button {
-    font-weight: 600;
 }
 
 .dashboard__add-new-button--wrapper {
@@ -239,6 +254,10 @@ $desktop-xl: 1920px;
     align-items: center;
     justify-content: center;
     border-radius: 25px;
+    background-color: rgb(0, 146, 139);
+    color: white;
+    border: none !important;
+    outline: none !important;
     max-height: 38px;
 }
 
