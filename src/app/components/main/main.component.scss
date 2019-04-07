@@ -88,11 +88,11 @@ $desktop-xl: 1920px;
     justify-content: flex-end;
 }
 
-.contacts__surname-group--item-name, .contacts__city-group--item-name,
-.contacts__email-group--item-name, .contacts__phone-group--item-name {
-    margin: 5px;
-    padding: 5px;
-}
+// .contacts__surname-group--item-name, .contacts__city-group--item-name,
+// .contacts__email-group--item-name, .contacts__phone-group--item-name {
+//     margin: 5px;
+//     padding: 5px;
+// }
 
 .main__contacts--detailed-view {
     padding-left: .5em;
@@ -104,11 +104,17 @@ $desktop-xl: 1920px;
 
 .contacts__group-item {
     display: flex;
+    // justify-content: center;
+    align-items: center;
     height: 40px;
     white-space: nowrap;
     flex-wrap: nowrap;
     flex-shrink: 1;
     font-size: .85em;
+}
+
+.contacts__group-item--text {
+    margin: .5rem 0;
 }
 
 .row.contacts__output:hover {
@@ -229,7 +235,7 @@ $desktop-xl: 1920px;
 .filter-form__name-input--wrapper {
     padding-left: 0;
     width: 18rem;
-    margin-right: .5rem; 
+    margin-right: .8rem; 
 }
 
 .filter-form__name-input {
@@ -288,7 +294,7 @@ $desktop-xl: 1920px;
 }
 
 .dashboard__add-new-button--wrapper {
-    padding: 0 0 0 3.3rem;
+    padding: 0 0 0 4.8rem;
     width: 16.7rem;
     margin-bottom: 1rem;
 }
@@ -340,12 +346,12 @@ $desktop-xl: 1920px;
 @include desktop-m {
     .filter-form__name-input--wrapper {
         width: 24rem;
-        margin-right: 2.5rem; 
+        margin-right: 2.7rem; 
     }
 
     .dashboard__add-new-button--wrapper {
         width: 24rem;
-        padding-left: 9.5rem;
+        padding-left: 11.2rem;
     } 
 
     .dashboard__wrapper {
@@ -361,12 +367,12 @@ $desktop-xl: 1920px;
 @include desktop-l {
     .filter-form__name-input--wrapper {
         width: 23.9rem;
-        margin-right: 1.9rem; 
+        margin-right: 2.2rem; 
     }
 
     .dashboard__add-new-button--wrapper {
         width: 22rem;
-        padding-left: 9rem;
+        padding-left: 10.7rem;
     } 
 
     .dashboard__wrapper {
@@ -381,12 +387,12 @@ $desktop-xl: 1920px;
 @include desktop-xl {
     .filter-form__name-input--wrapper {
         width: 25rem;
-        margin-right: 1.2rem; 
+        margin-right: 1.5rem; 
     }
 
     .dashboard__add-new-button--wrapper {
         width: 22rem;
-        padding-left: 6.4rem;
+        padding-left: 7.9rem;
     }
     
     .dashboard__wrapper {

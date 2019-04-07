@@ -40,7 +40,7 @@
 </div>
 <div class="container-fluid contacts__wrapper">    
     <div class="row main__contacts">
-        <div class="col-md-3 main__contacts--detailed-view" #contactDetailsCol>
+        <div class="col-md-3 main__contacts--detailed-view" style="max-height: 365px" #contactDetailsCol>
             <div class="card" style="max-width: 16rem">
                 <img src="{{ selectedContact.imgUrl }}" class="card-img-top">
                 <div class="row card-body">
@@ -99,19 +99,19 @@
                             <i class="far fa-eye-slash"></i>
                         </span>
                     </div>
-                    <p class="contacts__group-item--name">{{ contact.name }}</p>
+                    <p class="contacts__group-item--text">{{ contact.name }}</p>
                 </div>
                 <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--surname">{{ contact.surname }}</p>
+                    <p class="contacts__group-item--text">{{ contact.surname }}</p>
                 </div>
                 <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--city">{{ contact.city }}</p>
+                    <p class="contacts__group-item--text">{{ contact.city }}</p>
                 </div>
                 <div class="col-md-3 contacts__group-item">
-                    <p class="contacts__group-item--email">{{ contact.email }}</p>
+                    <p class="contacts__group-item--text">{{ contact.email }}</p>
                 </div>
                 <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--phone">{{ contact.phone }}</p>
+                    <p class="contacts__group-item--text">{{ contact.phone }}</p>
                 </div>
                 <div class="col-md-1 contacts__group-item contacts__edit">
                     <div class="contacts__edit-item--left">
