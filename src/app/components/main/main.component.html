@@ -41,7 +41,7 @@
 <div class="container-fluid contacts__wrapper">    
     <div class="row main__contacts">
         <div class="col-md-3 main__contacts--detailed-view" #contactDetailsCol>
-            <div class="card" style="max-width: 16rem; height: 371px;">
+            <div class="card" style="max-width: 16rem">
                 <img src="{{ selectedContact.imgUrl }}" class="card-img-top">
                 <div class="row card-body">
                     <div class="col-md-5 card-body__header">
@@ -87,8 +87,9 @@
                 </div>
                 <div class="col-md-1 contacts__header-item header--edit"></div>
             </div>
-            <div class="row contacts__output" *ngFor="let contact of cl | filterName:searchName;"
-                (click)="showContactDetails(contact)" style="height: 39.5px">
+            <div class="row border-bottom contacts__output" 
+                *ngFor="let contact of cl | filterName:searchName"
+                (click)="showContactDetails(contact)">
                 <div class="col-md-2 contacts__group-item">
                     <div class="col-md-1 contacts__activity">
                         <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">

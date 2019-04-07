@@ -33,6 +33,11 @@ $desktop-xl: 1920px;
     box-shadow: 0px 0px 0px .5px #fff !important;
 }
 
+.border-bottom {
+    border-radius: 0 0 5px 5px;
+    border-bottom: .5px solid rgb(212, 212, 212);
+}
+
 .dashboard__wrapper {
     display: flex;
     height: 5rem;
@@ -59,21 +64,11 @@ $desktop-xl: 1920px;
 
 }
 
-.card {
-    box-shadow: 0 6px 6px -2px rgb(43, 43, 43);
-}
-
 .main__contacts--list {
-    border-radius: 5px;
-    background-color: hsl(0, 0%, 100%);
-    height: auto;
+    border-radius: 7px;
+    background-color: white;
+    height: fit-content;
     box-shadow: 0 6px 6px -2px rgb(43, 43, 43);
-}
-
-.contacts__group-item {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-shrink: 2;
 }
 
 .contacts__edit-item--left {
@@ -103,8 +98,17 @@ $desktop-xl: 1920px;
     padding-left: .5em;
 }
 
-.contacts__output {
-    height: 2rem;
+.contacts__headers {
+    border-radius: 5px 5px
+}
+
+.contacts__group-item {
+    display: flex;
+    height: 40px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    font-size: .85em;
 }
 
 .row.contacts__output:hover {
@@ -123,10 +127,11 @@ $desktop-xl: 1920px;
 }
 
 .card {
+    box-shadow: 0 6px 6px -2px rgb(43, 43, 43);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .card-img-top {
@@ -160,22 +165,18 @@ $desktop-xl: 1920px;
 }
 
 .contacts__header-button {
+    border-radius: 5px 0 0 0;
     cursor: pointer;
 }
 
 .contacts__header-item {
+    color: white;
     font-weight: 600;
     text-transform: capitalize;
 }
 
 .contacts__header-item--text {
     margin: .5rem 0 .5rem 0;
-}
-
-.contacts__group-item {
-    font-size: .85em;
-    white-space: nowrap;
-    border-bottom: .5px solid rgb(212, 212, 212);
 }
 
 .header__button-text--left {
@@ -185,7 +186,7 @@ $desktop-xl: 1920px;
 
 .header__button-icon--right {
     float: right;
-    margin: .5rem .5rem 0 0;
+    margin: .5rem .25rem 0 0;
 }
 
 .header--name {
@@ -210,6 +211,7 @@ $desktop-xl: 1920px;
 
 .header--edit {
     background-color: rgb(32, 179, 228);
+    border-radius: 0 5px 0 0;
 }
 
 .dashboard--filter-group {
@@ -248,6 +250,10 @@ $desktop-xl: 1920px;
     font-size: .9em;
     font-weight: 600;
     color: white;
+}
+
+.filter-form__submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .filter-form__checkbox--wrapper {
@@ -298,6 +304,10 @@ $desktop-xl: 1920px;
     border: none !important;
     outline: none !important;
     max-height: 38px;
+}
+
+.dashboard__add-new-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .dashboard__add-new-button--icon {
