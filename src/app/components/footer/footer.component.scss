@@ -28,10 +28,12 @@ $desktop-xl: 1920px;
 }
 
 .footer__wrapper {
-    height: 6rem;
+    height: 14rem;
     padding: 0 1em;
     font-size: .85em;
     white-space: nowrap;
+    background: linear-gradient(0.88turn, rgb(2, 129, 123), rgb(0, 89, 141));
+    color: white;
 }
 
 .footer__left, .footer__center, .footer__right {
@@ -78,10 +80,12 @@ $desktop-xl: 1920px;
 }
 
 .list-group-item {
+    padding: .25rem .5rem;
+    // color: white;
     border: none !important;
     text-decoration: underline;
-    padding: .25rem .5rem;
     cursor: pointer;
+    background: transparent;
 }
 
 .no-underline {
@@ -105,6 +109,10 @@ $desktop-xl: 1920px;
     align-items: center;
     justify-content: flex-start;
 }
+
+// .footer__center-help-center, .footer__center-sync {
+//     color: white;
+// }
 
 .footer__center-sync--left, .footer__center-help-center--left {
     display: flex;

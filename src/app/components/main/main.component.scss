@@ -28,33 +28,42 @@ $desktop-xl: 1920px;
     }
 }
 
-.main__wrapper {
-    padding: 0 1em;
+.borders {
+    border: 1px solid white;
+    outline: 1px solid gray;
 }
 
-.main {
-    height: 28rem;
-}
-
-.main__dashboard {
+.dashboard__wrapper {
     display: flex;
+    height: 5rem;
+    align-items: center;
     justify-content: space-between; 
+    background: linear-gradient(0.55turn, rgb(2, 129, 123), rgb(0, 89, 141));
+}
+
+.dashboard {
+    margin-top: .5rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.contacts__wrapper {
+    height: 32rem;
+    background: linear-gradient(0.55turn, rgb(2, 129, 123), rgb(0, 89, 141));
+}
+
+.main__contacts {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .main__contacts--list {
     border: 1px solid rgb(212, 211, 211);
     border-radius: 5px;
-    // max-height: 366px;
+    background-color: hsl(0, 0%, 100%);
     height: auto;
-}
-
-// .main__contacts--detailed-view {
-//     transition: visibility 300ms ease-in;
-// }
-
-.main__contacts {
-    display: flex;
-    justify-content: space-between;
 }
 
 .contacts__group-item {
@@ -178,8 +187,8 @@ $desktop-xl: 1920px;
 
 .filter-form__name-input--wrapper {
     padding-left: 0;
-    width: 16.7rem;
-    margin-right: 1rem; 
+    width: 18rem;
+    margin-right: .5rem; 
 }
 
 .filter-form__name-input {
@@ -220,7 +229,7 @@ $desktop-xl: 1920px;
 }
 
 .dashboard__add-new-button--wrapper {
-    padding: 0 0 0 2.5rem;
+    padding: 0 0 0 3.3rem;
     width: 16.7rem;
     margin-bottom: 1rem;
 }
@@ -251,7 +260,11 @@ $desktop-xl: 1920px;
 }
 
 @include desktop-s {
-    .main__wrapper {
+    .dashboard__wrapper {
+        padding: 0 2em;
+    }
+
+    .contacts__wrapper {
         padding: 0 2em;
     }
 }
@@ -264,26 +277,35 @@ $desktop-xl: 1920px;
 
     .dashboard__add-new-button--wrapper {
         width: 24rem;
-        padding-left: 6.8rem;
+        padding-left: 9.5rem;
     } 
 
-    .main__wrapper {
+    .dashboard__wrapper {
         padding: 0 4em;
     }
+
+    .contacts__wrapper {
+        padding: 0 4em;
+    }
+
 }
 
 @include desktop-l {
     .filter-form__name-input--wrapper {
-        width: 22rem;
-        margin-right: 2.5rem; 
+        width: 23.9rem;
+        margin-right: 1.9rem; 
     }
 
     .dashboard__add-new-button--wrapper {
         width: 22rem;
-        padding-left: 6.3rem;
+        padding-left: 9rem;
     } 
 
-    .main__wrapper {
+    .dashboard__wrapper {
+        padding: 0 8em;
+    }
+
+    .contacts__wrapper {
         padding: 0 8em;
     }
 } 
@@ -296,10 +318,14 @@ $desktop-xl: 1920px;
 
     .dashboard__add-new-button--wrapper {
         width: 22rem;
-        padding-left: 5.6rem;
+        padding-left: 6.4rem;
     }
     
-    .main__wrapper {
+    .dashboard__wrapper {
         padding: 0 26em;
-      }
+    }
+
+    .contacts__wrapper {
+        padding: 0 26em;
+    }
 }

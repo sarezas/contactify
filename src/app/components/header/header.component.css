@@ -1,5 +1,11 @@
+.borders {
+  border: 1px solid #050505;
+  border: 1px solid #707070;
+}
+
 .header__wrapper {
   padding: 0 1em;
+  background-color: #005963;
 }
 
 .header {
@@ -76,7 +82,6 @@
   width: 10.345em;
   height: 2.375em;
   border-radius: 25px 0 0 25px;
-  outline: none !important;
 }
 
 .header__search-bar__search-button {
@@ -84,7 +89,6 @@
   width: 3em;
   height: 2.375em;
   background: #9b9b9b;
-  outline: none !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -137,7 +141,7 @@
 
 @media (min-width: 1440px) {
   .header__dropdown-menu--wrapper {
-    right: -3.8em;
+    right: -3.6em;
   }
   .header__logo {
     margin: .7rem 0 0 0;
@@ -152,7 +156,7 @@
 
 @media (min-width: 1920px) {
   .header__dropdown-menu--wrapper {
-    right: -3em;
+    right: -3.2em;
   }
   .header__wrapper {
     padding: 0 26em;

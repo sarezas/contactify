@@ -1,8 +1,10 @@
 .footer__wrapper {
-  height: 6rem;
+  height: 14rem;
   padding: 0 1em;
   font-size: .85em;
   white-space: nowrap;
+  background: linear-gradient(0.88turn, #02817b, #00598d);
+  color: white;
 }
 
 .footer__left, .footer__center, .footer__right {
@@ -64,10 +66,11 @@
 }
 
 .list-group-item {
+  padding: .25rem .5rem;
   border: none !important;
   text-decoration: underline;
-  padding: .25rem .5rem;
   cursor: pointer;
+  background: transparent;
 }
 
 .no-underline {
