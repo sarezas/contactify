@@ -26,11 +26,11 @@
 }
 
 .copyright__list-group--item {
-  margin-right: .8vw;
+  margin-right: 2vw;
 }
 
 .contacts-menu__list {
-  margin-left: 2.5rem;
+  margin-left: 4.5rem;
 }
 
 .dashboard-selection__list-group, .footer__left--copyright {
@@ -109,25 +109,28 @@
 
 @media (min-width: 1024px) {
   .footer__wrapper {
-    padding: 2em 0 0 2em;
+    padding: 2em 2em;
   }
 }
 
 @media (min-width: 1366px) {
+  .contacts-menu__list {
+    margin-left: 7rem;
+  }
   .footer__wrapper {
-    padding: 0 4em;
+    padding: 2em 4em;
   }
 }
 
 @media (min-width: 1440px) {
   .footer__wrapper {
-    padding: 0 8em;
+    padding: 2em 8.5em;
   }
 }
 
 @media (min-width: 1920px) {
   .footer__wrapper {
-    padding: 4em 0 0 26em;
+    padding: 2em 30em;
   }
 }
 /*# sourceMappingURL=footer.component.css.map */

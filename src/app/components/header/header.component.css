@@ -152,7 +152,7 @@
 
 @media (min-width: 1920px) {
   .header__dropdown-menu--wrapper {
-    right: -3.5em;
+    right: -3em;
   }
   .header__wrapper {
     padding: 0 26em;

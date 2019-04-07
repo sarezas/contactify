@@ -50,11 +50,11 @@ $desktop-xl: 1920px;
 }
 
 .copyright__list-group--item {
-    margin-right: .8vw;
+    margin-right: 2vw;
 }
 
 .contacts-menu__list {
-    margin-left: 2.5rem;
+    margin-left: 4.5rem;
 }
 
 .dashboard-selection__list-group, .footer__left--copyright {
@@ -110,30 +110,30 @@ $desktop-xl: 1920px;
     display: flex;
 }
 
-// .footer__center-sync--right-text {
-//     padding: .75rem .25rem .75rem .25rem;
-// }
-
 @include desktop-s {
     .footer__wrapper {
-        padding: 2em 0 0 2em;
+        padding: 2em 2em;
     }
 }
 
 @include desktop-m {
+    .contacts-menu__list {
+        margin-left: 7rem;
+    }
+    
     .footer__wrapper {
-        padding: 0 4em;
+        padding: 2em 4em;
     }
 }
 
 @include desktop-l {
     .footer__wrapper {
-        padding: 0 8em;
+        padding: 2em 8.5em;
     }
 }
 
 @include desktop-xl {
     .footer__wrapper {
-        padding: 4em 0 0 26em;
+        padding: 2em 30em;
     }
   }

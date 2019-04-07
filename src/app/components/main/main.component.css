@@ -272,7 +272,7 @@
   }
   .dashboard__add-new-button--wrapper {
     width: 24rem;
-    padding-left: 8rem;
+    padding-left: 6.8rem;
   }
   .main__wrapper {
     padding: 0 4em;
@@ -286,7 +286,7 @@
   }
   .dashboard__add-new-button--wrapper {
     width: 22rem;
-    padding-left: 7.8rem;
+    padding-left: 6.3rem;
   }
   .main__wrapper {
     padding: 0 8em;
@@ -296,11 +296,11 @@
 @media (min-width: 1920px) {
   .filter-form__name-input--wrapper {
     width: 25rem;
-    margin-right: 2rem;
+    margin-right: 1.2rem;
   }
   .dashboard__add-new-button--wrapper {
     width: 22rem;
-    padding-left: 7rem;
+    padding-left: 5.6rem;
   }
   .main__wrapper {
     padding: 0 26em;
