@@ -1,0 +1,111 @@
+@import '../../../variables';
+
+.border-bottom {
+    border-radius: 0 0 5px 5px;
+    border-bottom: .5px solid rgb(212, 212, 212);
+}
+
+.contacts__edit-item--left {
+    float: left;
+    margin: 2.5px;
+    padding: 2.5px;
+}
+
+.contacts__edit-item--right {
+    float: right;
+    margin: 2.5px;
+    padding: 2.5px;
+}
+
+.contacts__activity {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contacts__detailed-view {
+    max-height: 365px;
+    padding-left: .5em;
+}
+
+.contacts__headers {
+    border-radius: 5px 5px
+}
+
+.contacts__group-item {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    font-size: .85em;
+}
+
+.contacts__group-item--text {
+    margin: .5rem 0;
+}
+
+.row.contacts__output:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.row.contacts__output:hover .contacts__edit-item--left {
+    border-radius: 5px;
+    background-color: rgb(63, 164, 197);
+}
+
+.row.contacts__output:hover .contacts__edit-item--right {
+    border-radius: 5px;
+    background-color: rgb(63, 164, 197);
+}
+
+.contacts__header-button {
+    border-radius: 5px 0 0 0;
+    cursor: pointer;
+}
+
+.contacts__header-item {
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.contacts__header-item--text {
+    margin: .5rem 0 .5rem 0;
+}
+
+.contacts__header-button-text--left {
+    float: left;
+    margin: .5rem 0 0 1.8rem;
+}
+
+.contacts__header__button-icon--right {
+    float: right;
+    margin: .5rem 0 0 .5rem;
+}
+
+.header--name {
+    background-color: rgb(16, 115, 148);
+}
+
+.header--surname {
+    background-color: rgb(18, 128, 165);
+}
+
+.header--city {
+    background-color: rgb(22, 149, 192);
+}
+
+.header--email {
+    background-color: rgb(29, 159, 202);
+}
+
+.header--phone {
+    background-color: rgb(35, 169, 214);
+}
+
+.header--edit {
+    background-color: rgb(32, 179, 228);
+    border-radius: 0 5px 0 0;
+}

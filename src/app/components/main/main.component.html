@@ -1,133 +1,14 @@
 <div class="container-fluid dashboard--wrapper">
-    <div class="row dashboard">
-        <div class="col-md-9 dashboard__filter">
-            <form (ngSubmit)="filterContacts(f)" #f="ngForm">
-                <div class="form-row">
-                    <div class="col-md-4 filter-form__name-input--wrapper">
-                        <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
-                            [(ngModel)]="searchName" name="searchName">
-                    </div>
-                    <div class="col-md-3 filter-form__city-input--wrapper">
-                        <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
-                            placeholder="City">
-                            <option>All</option>
-                            <option>Hong Kong</option>
-                            <option>London</option>
-                            <option>Los Angeles</option>
-                            <option>Sydney</option>
-                            <option>Singapore</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 m-1 filter-form__checkbox--wrapper">
-                        <div class="filter-form__checkbox--border">
-                            <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox">    
-                        </div>
-                        <p class="filter-form__checkbox--text">show active</p>
-                    </div>
-                    <div class="col-md-2 filter-form__submit-button--wrapper">
-                        <button type="submit" class="btn filter-form__submit-button">filter</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-3 dashboard__add-new-button--wrapper">
-            <button class="btn dashboard__add-new-button">
-                <i class="fas fa-plus-circle dashboard__add-new-button--icon"></i>
-                <p class="dashboard__add-new-button--text">add new contact</p>
-            </button>
-        </div>
-    </div>
+    <app-dashboard></app-dashboard>
 </div>
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">
-        <div class="col-md-3 contacts__detailed-view" #contactDetailsCol>
-            <div class="card contacts__card">
-                <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
-                <img *ngIf="selected" src="{{ selectedContact.imgUrl }}" class="card-img-top">
-                <div class="row card-body">
-                    <div class="col-md-5 card-body__header">
-                        <p class="card-text">Name:</p>
-                        <p class="card-text">Surname:</p>
-                        <p class="card-text">City:</p>
-                        <p class="card-text">Email:</p>
-                        <p class="card-text">Phone:</p>
-                    </div>
-                    <div class="col-md-7 card-body__contact-details">
-                        <p *ngIf="!selected" class="card-text"><i>no contact selected</i></p>
-                        <p *ngIf="selected" class="card-text">{{ selectedContact.name }}</p>
-                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
-                        <p *ngIf="selected" class="card-text">{{ selectedContact.surname }}</p>
-                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
-                        <p *ngIf="selected" class="card-text">{{ selectedContact.city }}</p>
-                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
-                        <p *ngIf="selected" class="card-text">{{ selectedContact.email }}</p>
-                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
-                        <p *ngIf="selected" class="card-text">{{ selectedContact.phone }}</p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-3 contacts__detailed-view">
+            <app-detailed-view></app-detailed-view>
         </div>
         <div class="col-md-9 contacts--list">
-            <div class="row contacts__headers">
-                <div class="col-md-2 contacts__header-item header--name
-                    contacts__header-button" (click)="sortByName()">
-                    <p class="contacts__header-button-text--left">name</p>
-                    <span class="contacts__header__button-icon--right" *ngIf="!order">
-                        <i class="fas fa-arrow-up"></i>
-                    </span>
-                    <span class="contacts__header__button-icon--right" *ngIf="order">
-                        <i class="fas fa-arrow-down"></i>
-                    </span>
-                </div>
-                <div class="col-md-2 contacts__header-item header--surname">
-                    <p class="contacts__header-item--text">surname</p>
-                </div>
-                <div class="col-md-2 contacts__header-item header--city">
-                    <p class="contacts__header-item--text">city</p>
-                </div>
-                <div class="col-md-3 contacts__header-item header--email">
-                    <p class="contacts__header-item--text">email</p>
-                </div>
-                <div class="col-md-2 contacts__header-item header--phone">
-                    <p class="contacts__header-item--text">phone</p>
-                </div>
-                <div class="col-md-1 contacts__header-item header--edit"></div>
-            </div>
-            <div class="row border-bottom contacts__output" 
-                *ngFor="let contact of cl | filterName:searchName"
-                (click)="showContactDetails(contact)">
-                <div class="col-md-2 contacts__group-item">
-                    <div class="col-md-1 contacts__activity">
-                        <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
-                            <i class="far fa-eye"></i>
-                        </span>
-                        <span class="contacts__name-group--item-activity-n" *ngIf="!contact.active">
-                            <i class="far fa-eye-slash"></i>
-                        </span>
-                    </div>
-                    <p class="contacts__group-item--text">{{ contact.name }}</p>
-                </div>
-                <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--text">{{ contact.surname }}</p>
-                </div>
-                <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--text">{{ contact.city }}</p>
-                </div>
-                <div class="col-md-3 contacts__group-item">
-                    <p class="contacts__group-item--text">{{ contact.email }}</p>
-                </div>
-                <div class="col-md-2 contacts__group-item">
-                    <p class="contacts__group-item--text">{{ contact.phone }}</p>
-                </div>
-                <div class="col-md-1 contacts__group-item contacts__edit">
-                    <div class="contacts__edit-item--left">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <div class="contacts__edit-item--right">
-                        <i class="fas fa-trash-alt"></i>
-                    </div>
-                </div>
-            </div>
+            <app-contact-list [contacts]="contacts"></app-contact-list>
         </div>
+        
     </div>
 </div>

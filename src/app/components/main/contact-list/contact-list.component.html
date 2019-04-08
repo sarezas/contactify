@@ -1,0 +1,61 @@
+<div class="row contacts__headers">
+  <div class="col-md-2 contacts__header-item header--name
+    contacts__header-button" (click)="sortByName()">
+    <p class="contacts__header-button-text--left">name</p>
+    <span class="contacts__header__button-icon--right" *ngIf="!order">
+      <i class="fas fa-arrow-up"></i>
+    </span>
+    <span class="contacts__header__button-icon--right" *ngIf="order">
+      <i class="fas fa-arrow-down"></i>
+    </span>
+  </div>
+  <div class="col-md-2 contacts__header-item header--surname">
+    <p class="contacts__header-item--text">surname</p>
+  </div>
+  <div class="col-md-2 contacts__header-item header--city">
+    <p class="contacts__header-item--text">city</p>
+  </div>
+  <div class="col-md-3 contacts__header-item header--email">
+    <p class="contacts__header-item--text">email</p>
+  </div>
+  <div class="col-md-2 contacts__header-item header--phone">
+    <p class="contacts__header-item--text">phone</p>
+  </div>
+  <div class="col-md-1 contacts__header-item header--edit"></div>
+</div>
+<!-- <div class="row border-bottom contacts__output" *ngFor="let contact of cl | filterName:searchName"
+  (click)="showContactDetails(contact)"> -->
+<div class="row border-bottom contacts__output" *ngFor="let contact of contacts | filterName:searchName"
+  (click)="showContactDetails(contact)">
+  <div class="col-md-2 contacts__group-item">
+    <div class="col-md-1 contacts__activity">
+      <span class="contacts__name-group--item-activity-y" *ngIf="contact.active">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="contacts__name-group--item-activity-n" *ngIf="!contact.active">
+        <i class="far fa-eye-slash"></i>
+      </span>
+    </div>
+    <p class="contacts__group-item--text">{{ contact.name }}</p>
+  </div>
+  <div class="col-md-2 contacts__group-item">
+    <p class="contacts__group-item--text">{{ contact.surname }}</p>
+  </div>
+  <div class="col-md-2 contacts__group-item">
+    <p class="contacts__group-item--text">{{ contact.city }}</p>
+  </div>
+  <div class="col-md-3 contacts__group-item">
+    <p class="contacts__group-item--text">{{ contact.email }}</p>
+  </div>
+  <div class="col-md-2 contacts__group-item">
+    <p class="contacts__group-item--text">{{ contact.phone }}</p>
+  </div>
+  <div class="col-md-1 contacts__group-item contacts__edit">
+    <div class="contacts__edit-item--left">
+      <i class="fas fa-pencil-alt"></i>
+    </div>
+    <div class="contacts__edit-item--right">
+      <i class="fas fa-trash-alt"></i>
+    </div>
+  </div>
+</div>

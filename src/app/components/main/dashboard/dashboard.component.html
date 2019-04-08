@@ -1,0 +1,38 @@
+<div class="row dashboard">
+  <div class="col-md-9 dashboard__filter">
+    <form (ngSubmit)="filterContacts(f)" #f="ngForm">
+      <div class="form-row">
+        <div class="col-md-4 filter-form__name-input--wrapper">
+          <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
+            [(ngModel)]="searchName" name="searchName">
+        </div>
+        <div class="col-md-3 filter-form__city-input--wrapper">
+          <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
+            placeholder="City">
+            <option>All</option>
+            <option>Hong Kong</option>
+            <option>London</option>
+            <option>Los Angeles</option>
+            <option>Sydney</option>
+            <option>Singapore</option>
+          </select>
+        </div>
+        <div class="col-md-2 m-1 filter-form__checkbox--wrapper">
+          <div class="filter-form__checkbox--border">
+            <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox">
+          </div>
+          <p class="filter-form__checkbox--text">show active</p>
+        </div>
+        <div class="col-md-2 filter-form__submit-button--wrapper">
+          <button type="submit" class="btn filter-form__submit-button">filter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-3 dashboard__add-new-button--wrapper">
+    <button class="btn dashboard__add-new-button">
+      <i class="fas fa-plus-circle dashboard__add-new-button--icon"></i>
+      <p class="dashboard__add-new-button--text">add new contact</p>
+    </button>
+  </div>
+</div>
