@@ -9,7 +9,14 @@
   border-bottom: 0.5px solid #d4d4d4;
 }
 
-.dashboard__wrapper {
+.not-selected {
+  background: -webkit-gradient(linear, left top, left bottom, from(#859096), to(#93adac));
+  background: linear-gradient(0.5turn, #859096, #93adac);
+  height: 180px !important;
+  width: 180px !important;
+}
+
+.dashboard--wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,12 +40,12 @@
           align-items: flex-end;
 }
 
-.contacts__wrapper {
+.contacts--wrapper {
   height: 32rem;
   background: linear-gradient(0.55turn, #02817b, #00598d);
 }
 
-.main__contacts {
+.contacts {
   padding-top: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,7 +55,7 @@
           justify-content: space-between;
 }
 
-.main__contacts--list {
+.contacts--list {
   border-radius: 7px;
   background-color: white;
   height: -webkit-fit-content;
@@ -79,7 +86,8 @@
           justify-content: flex-end;
 }
 
-.main__contacts--detailed-view {
+.contacts__detailed-view {
+  max-height: 365px;
   padding-left: .5em;
 }
 
@@ -94,7 +102,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 40px;
+  height: 42px;
   white-space: nowrap;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -122,7 +130,7 @@
   background-color: #3fa4c5;
 }
 
-.card {
+.contacts__card {
   -webkit-box-shadow: 0 6px 6px -2px #2b2b2b;
           box-shadow: 0 6px 6px -2px #2b2b2b;
   display: -webkit-box;
@@ -135,18 +143,19 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 7px;
+  max-width: 16rem;
 }
 
 .card-img-top {
-  width: 170px;
-  height: auto;
+  height: 180px !important;
+  width: 180px !important;
   border-radius: 50%;
   border: 5px solid #d4d3d3;
   margin-top: 20px;
 }
 
 .card-body {
-  font-size: .6em;
+  font-size: .7em;
 }
 
 .card-body__header {
@@ -184,14 +193,14 @@
   margin: .5rem 0 .5rem 0;
 }
 
-.header__button-text--left {
+.contacts__header-button-text--left {
   float: left;
   margin: .5rem 0 0 1.8rem;
 }
 
-.header__button-icon--right {
+.contacts__header__button-icon--right {
   float: right;
-  margin: .5rem .25rem 0 0;
+  margin: .5rem 0 0 .5rem;
 }
 
 .header--name {
@@ -219,7 +228,7 @@
   border-radius: 0 5px 0 0;
 }
 
-.dashboard--filter-group {
+.dashboard__filter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -238,8 +247,8 @@
 
 .filter-form__name-input--wrapper {
   padding-left: 0;
-  width: 18rem;
-  margin-right: .8rem;
+  width: 19.5rem;
+  margin-right: .4rem;
 }
 
 .filter-form__name-input {
@@ -283,7 +292,7 @@
   font-size: .9em;
 }
 
-.checkbox__border {
+.filter-form__checkbox--border {
   height: 16px;
   width: 16px;
   margin: 0 .5rem 1rem 0;
@@ -308,7 +317,7 @@
 }
 
 .dashboard__add-new-button--wrapper {
-  padding: 0 0 0 4.8rem;
+  padding: 0 0 0 4rem;
   width: 16.7rem;
   margin-bottom: 1rem;
 }
@@ -355,61 +364,61 @@
 }
 
 @media (min-width: 1024px) {
-  .dashboard__wrapper {
+  .dashboard--wrapper {
     padding: 0 2em;
   }
-  .contacts__wrapper {
+  .contacts--wrapper {
     padding: 0 2em;
   }
 }
 
 @media (min-width: 1366px) {
   .filter-form__name-input--wrapper {
-    width: 24rem;
-    margin-right: 2.7rem;
+    width: 23.5rem;
+    margin-right: 2.8rem;
   }
   .dashboard__add-new-button--wrapper {
     width: 24rem;
-    padding-left: 11.2rem;
+    padding-left: 11.5rem;
   }
-  .dashboard__wrapper {
+  .dashboard--wrapper {
     padding: 0 4em;
   }
-  .contacts__wrapper {
+  .contacts--wrapper {
     padding: 0 4em;
   }
 }
 
 @media (min-width: 1440px) {
   .filter-form__name-input--wrapper {
-    width: 23.9rem;
+    width: 23.8rem;
     margin-right: 2.2rem;
   }
   .dashboard__add-new-button--wrapper {
     width: 22rem;
     padding-left: 10.7rem;
   }
-  .dashboard__wrapper {
+  .dashboard--wrapper {
     padding: 0 8em;
   }
-  .contacts__wrapper {
+  .contacts--wrapper {
     padding: 0 8em;
   }
 }
 
 @media (min-width: 1920px) {
   .filter-form__name-input--wrapper {
-    width: 25rem;
+    width: 24.9rem;
     margin-right: 1.5rem;
   }
   .dashboard__add-new-button--wrapper {
     width: 22rem;
-    padding-left: 7.9rem;
+    padding-left: 8rem;
   }
-  .dashboard__wrapper {
+  .dashboard--wrapper {
     padding: 0 26em;
   }
-  .contacts__wrapper {
+  .contacts--wrapper {
     padding: 0 26em;
   }
 }

@@ -1,6 +1,6 @@
-<div class="container-fluid dashboard__wrapper">
+<div class="container-fluid dashboard--wrapper">
     <div class="row dashboard">
-        <div class="col-md-9 dashboard--filter-group">
+        <div class="col-md-9 dashboard__filter">
             <form (ngSubmit)="filterContacts(f)" #f="ngForm">
                 <div class="form-row">
                     <div class="col-md-4 filter-form__name-input--wrapper">
@@ -19,7 +19,7 @@
                         </select>
                     </div>
                     <div class="col-md-2 m-1 filter-form__checkbox--wrapper">
-                        <div class="checkbox__border">
+                        <div class="filter-form__checkbox--border">
                             <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox">    
                         </div>
                         <p class="filter-form__checkbox--text">show active</p>
@@ -38,11 +38,12 @@
         </div>
     </div>
 </div>
-<div class="container-fluid contacts__wrapper">    
-    <div class="row main__contacts">
-        <div class="col-md-3 main__contacts--detailed-view" style="max-height: 365px" #contactDetailsCol>
-            <div class="card" style="max-width: 16rem">
-                <img src="{{ selectedContact.imgUrl }}" class="card-img-top">
+<div class="container-fluid contacts--wrapper">    
+    <div class="row contacts">
+        <div class="col-md-3 contacts__detailed-view" #contactDetailsCol>
+            <div class="card contacts__card">
+                <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
+                <img *ngIf="selected" src="{{ selectedContact.imgUrl }}" class="card-img-top">
                 <div class="row card-body">
                     <div class="col-md-5 card-body__header">
                         <p class="card-text">Name:</p>
@@ -52,24 +53,29 @@
                         <p class="card-text">Phone:</p>
                     </div>
                     <div class="col-md-7 card-body__contact-details">
-                        <p class="card-text">{{ selectedContact.name }}</p>
-                        <p class="card-text">{{ selectedContact.surname }}</p>
-                        <p class="card-text">{{ selectedContact.city }}</p>
-                        <p class="card-text">{{ selectedContact.email }}</p>
-                        <p class="card-text">{{ selectedContact.phone }}</p>
+                        <p *ngIf="!selected" class="card-text"><i>no contact selected</i></p>
+                        <p *ngIf="selected" class="card-text">{{ selectedContact.name }}</p>
+                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
+                        <p *ngIf="selected" class="card-text">{{ selectedContact.surname }}</p>
+                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
+                        <p *ngIf="selected" class="card-text">{{ selectedContact.city }}</p>
+                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
+                        <p *ngIf="selected" class="card-text">{{ selectedContact.email }}</p>
+                        <p *ngIf="!selected" class="card-text"><i>-</i></p>
+                        <p *ngIf="selected" class="card-text">{{ selectedContact.phone }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-9 main__contacts--list">
+        <div class="col-md-9 contacts--list">
             <div class="row contacts__headers">
                 <div class="col-md-2 contacts__header-item header--name
                     contacts__header-button" (click)="sortByName()">
-                    <p class="header__button-text--left">name</p>
-                    <span class="header__button-icon--right" *ngIf="!order">
+                    <p class="contacts__header-button-text--left">name</p>
+                    <span class="contacts__header__button-icon--right" *ngIf="!order">
                         <i class="fas fa-arrow-up"></i>
                     </span>
-                    <span class="header__button-icon--right" *ngIf="order">
+                    <span class="contacts__header__button-icon--right" *ngIf="order">
                         <i class="fas fa-arrow-down"></i>
                     </span>
                 </div>

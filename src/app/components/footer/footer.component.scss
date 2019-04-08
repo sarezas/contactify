@@ -27,7 +27,7 @@ $desktop-xl: 1920px;
     }
 }
 
-.footer__wrapper {
+.footer--wrapper {
     height: 14rem;
     padding: 0 1em;
     font-size: .85em;
@@ -99,9 +99,13 @@ $desktop-xl: 1920px;
 
 .footer__center-sync--left, .footer__center-sync--center, 
 .footer__center-help-center--left, .footer__center-help-center--right {
-    // border: 1px solid gray;
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.footer__center-sync--center-text, .footer__center-help-center--right-text {
+    margin: .25rem 0 .25rem 0;
 }
 
 .footer__center-sync--center, .footer__center-help-center--right {
@@ -123,7 +127,7 @@ $desktop-xl: 1920px;
 }
 
 @include desktop-s {
-    .footer__wrapper {
+    .footer--wrapper {
         padding: 2em 2em;
     }
 }
@@ -133,19 +137,19 @@ $desktop-xl: 1920px;
         margin-left: 7rem;
     }
     
-    .footer__wrapper {
+    .footer--wrapper {
         padding: 2em 4em;
     }
 }
 
 @include desktop-l {
-    .footer__wrapper {
+    .footer--wrapper {
         padding: 2em 8.5em;
     }
 }
 
 @include desktop-xl {
-    .footer__wrapper {
+    .footer--wrapper {
         padding: 2em 30em;
     }
   }

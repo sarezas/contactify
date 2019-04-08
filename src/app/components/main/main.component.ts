@@ -27,6 +27,8 @@ export class MainComponent implements OnInit {
     imgUrl: '../../assets/images/userpic.jpg'
   };
 
+  selected = false;
+
   constructor() {}
 
   ngOnInit() {
@@ -104,6 +106,7 @@ export class MainComponent implements OnInit {
     //     easing: 'ease-in'
     //   }
     // );
+    this.selected = true;
 
     const selectedId: number = contact.id;
     const selectedName: string = contact.name;
