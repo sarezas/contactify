@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
-// import { default as contacts } from '../../../../assets/contacts/contacts.json';
 import { Contact } from '../../../interfaces/contact';
 import { Observable } from 'rxjs';
 
@@ -13,27 +12,20 @@ export class ContactListComponent implements OnInit {
   // @ViewChild('checkbox') checkbox: ElementRef;
   // @Input() cl: Contact[] = contacts;
   @Input() contacts: Contact[];
-  // @Input() al: Contact[] = this.cl.filter(c => c.active === true);
-  // @Output() selectedContact: Contact = {
-  //   id: null,
-  //   name: '',
-  //   surname: '',
-  //   city: '',
-  //   email: '',
-  //   phone: '',
-  //   active: undefined,
-  //   imgUrl: '../../assets/images/userpic.jpg'
-  // };
-  // order = false;
-  // selected = false;
+  // @Output() sort: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() sortContacts = new EventEmitter<string>();
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  showContactDetails(contact: Contact) {
+  toggleSorting() {
+    this.sortContacts.emit();
+  }
 
-    console.log(contact);
+  // showContactDetails(contact: Contact) {
+
+  //   console.log(contact);
   //   this.selected = true;
 
   //   const selectedId: number = contact.id;
@@ -51,7 +43,7 @@ export class ContactListComponent implements OnInit {
   //   this.selectedContact.email = selectedEmail;
   //   this.selectedContact.phone = selectedPhone;
   //   this.selectedContact.active = selectedActive;
-  }
+  // }
 
   // sortByName() {
   //   this.order = !this.order;

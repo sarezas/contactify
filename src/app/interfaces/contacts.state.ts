@@ -1,6 +1,6 @@
 import { Contact } from './contact';
 
-export class ContactState {
+export class ContactsState {
     constructor() {}
     readonly contacts: Contact[];
     readonly selectedContact: Contact;

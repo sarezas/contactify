@@ -1,11 +1,9 @@
 import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 
-import { ApiService } from 'src/app/services/api.service';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DetailedViewComponent } from './detailed-view/detailed-view.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactsState } from 'src/app/interfaces/contacts.state';
+import * as contactsActions from '../../ngrx-store/actions/contacts.actions';
 import { Contact } from '../../interfaces/contact';
 
 @Component({
@@ -14,20 +12,31 @@ import { Contact } from '../../interfaces/contact';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit, OnDestroy {
-  @Input() contacts: Contact[];
+  @Input() contacts$: Observable<Contact[]>;
+  @Input() cl: Contact[];
+  @Input() selectedContact$: Observable<Contact>;
+  sorted = false;
 
-  constructor(private api: ApiService) {
-    this.api.getAllContacts().subscribe(
-      data =>  this.contacts = data,
-      error => console.log(error),
-    );
-    setTimeout(() => {
-      console.log(this.contacts);
-    }, 500);
+  constructor(private store: Store<ContactsState>) {
+    this.contacts$ = this.store.select('contacts', 'contacts');
+    this.selectedContact$ = this.store.select('contacts', 'selectedContact');
+    this.contacts$.subscribe((contacts: Contact[]) => this.cl = contacts);
   }
 
-  ngOnInit() {}
-
-  ngOnDestroy() {
+  ngOnInit() {
+    this.store.dispatch(new contactsActions.GetContacts());
   }
+
+  catchSorting() {
+    this.sorted = !this.sorted;
+    console.log(this.sorted);
+
+    if (this.sorted === true) {
+      this.store.dispatch(new contactsActions.ContactsSortAZ());
+    } else {
+      this.store.dispatch(new contactsActions.ContactsSortZA());
+    }
+  }
+
+  ngOnDestroy() {}
 }
