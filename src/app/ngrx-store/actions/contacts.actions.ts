@@ -31,7 +31,11 @@ export class ContactsSortAZ implements Action {
 
 export class ContactsSortAZSuccess implements Action {
     readonly type = CONTACTS_SORT_A_Z_SUCCESS;
-    constructor(public payload: Contact[]) {}
+    constructor(public payload: {
+        contactsArr: Contact[],
+        sortedAZ: boolean,
+        sortedZA: boolean
+    }) {}
 }
 
 export class ContactsSortZA implements Action {
@@ -40,7 +44,11 @@ export class ContactsSortZA implements Action {
 
 export class ContactsSortZASuccess implements Action {
     readonly type = CONTACTS_SORT_Z_A_SUCCESS;
-    constructor(public payload: Contact[]) {}
+    constructor(public payload: {
+        contactsArr: Contact[],
+        sortedAZ: boolean,
+        sortedZA: boolean
+    }) {}
 }
 
 export class ContactsFilterByName implements Action {

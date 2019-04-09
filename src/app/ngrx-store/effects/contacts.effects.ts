@@ -36,7 +36,7 @@ export class ContactsEffects {
         switchMap(() => {
             return this.api.getAllContacts().pipe(
                 map(contacts => {
-                    const contactsAZ = contacts.sort((a: {name: string}, b: {name: string}) => {
+                    const contactsAZ: Contact[] = contacts.sort((a: {name: string}, b: {name: string}) => {
                         const x = a.name.toLowerCase();
                         const y = b.name.toLowerCase();
                         if (x > y) {
@@ -47,7 +47,39 @@ export class ContactsEffects {
                     });
                     return {
                         type: 'CONTACTS_SORT_A_Z_SUCCESS',
-                        payload: contactsAZ
+                        payload: {
+                            contactsArr: contactsAZ,
+                            sortedAZ: true,
+                            sortedZA: false
+                        }
+                    };
+                })
+            );
+        })
+    );
+
+    @Effect()
+    sortContactsZA: Observable<any> = this.actions.pipe(
+        ofType(contactsActions.CONTACTS_SORT_Z_A),
+        switchMap(() => {
+            return this.api.getAllContacts().pipe(
+                map(contacts => {
+                    const contactsZA = contacts.sort((a: {name: string}, b: {name: string}) => {
+                        const x = a.name.toLowerCase();
+                        const y = b.name.toLowerCase();
+                        if (x < y) {
+                            return 1;
+                        } else {
+                            return -1;
+                        }
+                    });
+                    return {
+                        type: 'CONTACTS_SORT_Z_A_SUCCESS',
+                        payload: {
+                            contactsArr: contactsZA,
+                            sortedAZ: false,
+                            sortedZA: true
+                        }
                     };
                 })
             );

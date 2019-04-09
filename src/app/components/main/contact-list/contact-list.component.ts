@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
-
 import { Contact } from '../../../interfaces/contact';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,15 +10,19 @@ export class ContactListComponent implements OnInit {
   // @ViewChild('checkbox') checkbox: ElementRef;
   // @Input() cl: Contact[] = contacts;
   @Input() contacts: Contact[];
-  // @Output() sort: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() sortContacts = new EventEmitter<string>();
+  @Input() sortedAZ: boolean;
+  @Input() sortedZA: boolean;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   toggleSorting() {
     this.sortContacts.emit();
+    console.log('child: ', this.sortedAZ);
+    console.log('child: ', this.sortedZA);
   }
 
   // showContactDetails(contact: Contact) {

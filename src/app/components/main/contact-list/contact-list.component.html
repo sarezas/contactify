@@ -2,10 +2,10 @@
   <div class="col-md-2 contacts__header-item header--name
     contacts__header-button" (click)="toggleSorting()">
     <p class="contacts__header-button-text--left">name</p>
-    <span class="contacts__header__button-icon--right" *ngIf="!order">
+    <span class="contacts__header__button-icon--right" *ngIf="sortedZA">
       <i class="fas fa-arrow-up"></i>
     </span>
-    <span class="contacts__header__button-icon--right" *ngIf="order">
+    <span class="contacts__header__button-icon--right" *ngIf="sortedAZ">
       <i class="fas fa-arrow-down"></i>
     </span>
   </div>
@@ -23,8 +23,6 @@
   </div>
   <div class="col-md-1 contacts__header-item header--edit"></div>
 </div>
-<!-- <div class="row border-bottom contacts__output" *ngFor="let contact of cl | filterName:searchName"
-  (click)="showContactDetails(contact)"> -->
 <div class="row border-bottom contacts__output" *ngFor="let contact of contacts"
   (click)="showContactDetails(contact)">
   <div class="col-md-2 contacts__group-item">

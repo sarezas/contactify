@@ -7,7 +7,12 @@
             <app-detailed-view></app-detailed-view>
         </div>
         <div class="col-md-9 contacts--list">
-            <app-contact-list [contacts]="cl" (sortContacts)="catchSorting()"></app-contact-list>
+            <app-contact-list
+                [contacts]="cl"
+                (sortContacts)="handleSorting()"
+                [sortedAZ]="sortedAZ"
+                [sortedZA]="sortedZA">
+            </app-contact-list>
         </div>
     </div>
 </div>
