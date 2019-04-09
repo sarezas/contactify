@@ -45,17 +45,17 @@
     margin: .5rem 0;
 }
 
-.row.contacts__output:hover {
+.contacts__output:hover {
     background-color: lightblue;
     cursor: pointer;
 }
 
-.row.contacts__output:hover .contacts__edit-item--left {
+.contacts__output:hover .contacts__edit-item--left {
     border-radius: 5px;
     background-color: rgb(63, 164, 197);
 }
 
-.row.contacts__output:hover .contacts__edit-item--right {
+.contacts__output:hover .contacts__edit-item--right {
     border-radius: 5px;
     background-color: rgb(63, 164, 197);
 }

@@ -31,7 +31,9 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() { }
 
-  // showContactDetails(contact: Contact) {
+  showContactDetails(contact: Contact) {
+
+    console.log(contact);
   //   this.selected = true;
 
   //   const selectedId: number = contact.id;
@@ -49,7 +51,7 @@ export class ContactListComponent implements OnInit {
   //   this.selectedContact.email = selectedEmail;
   //   this.selectedContact.phone = selectedPhone;
   //   this.selectedContact.active = selectedActive;
-  // }
+  }
 
   // sortByName() {
   //   this.order = !this.order;

@@ -1,0 +1,55 @@
+.not-selected {
+  background: -webkit-gradient(linear, left top, left bottom, from(#859096), to(#93adac));
+  background: linear-gradient(0.5turn, #859096, #93adac);
+  height: 180px !important;
+  width: 180px !important;
+}
+
+.contacts__card {
+  -webkit-box-shadow: 0 6px 6px -2px #2b2b2b;
+          box-shadow: 0 6px 6px -2px #2b2b2b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 7px;
+  max-width: 16rem;
+}
+
+.card-img-top {
+  height: 180px !important;
+  width: 180px !important;
+  border-radius: 50%;
+  border: 5px solid #d4d3d3;
+  margin-top: 20px;
+}
+
+.card-body {
+  font-size: .7em;
+}
+
+.card-body__header {
+  text-align: end;
+  margin-right: 0 !important;
+  padding-right: 5px !important;
+  -ms-flex-negative: inherit;
+      flex-shrink: inherit;
+  white-space: nowrap;
+  fill: #000;
+}
+
+.card-body__contact-details {
+  text-align: start;
+  margin-left: 0 !important;
+  padding-left: 5px !important;
+  -ms-flex-negative: inherit;
+      flex-shrink: inherit;
+  white-space: nowrap;
+  fill: #000;
+}
+/*# sourceMappingURL=detailed-view.component.css.map */

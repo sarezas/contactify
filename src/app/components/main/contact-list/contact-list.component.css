@@ -1,0 +1,120 @@
+.border-bottom {
+  border-radius: 0 0 5px 5px;
+  border-bottom: 0.5px solid #d4d4d4;
+}
+
+.contacts__edit-item--left {
+  float: left;
+  margin: 2.5px;
+  padding: 2.5px;
+}
+
+.contacts__edit-item--right {
+  float: right;
+  margin: 2.5px;
+  padding: 2.5px;
+}
+
+.contacts__activity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contacts__detailed-view {
+  max-height: 365px;
+  padding-left: .5em;
+}
+
+.contacts__headers {
+  border-radius: 5px 5px;
+}
+
+.contacts__group-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 42px;
+  white-space: nowrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  font-size: .85em;
+}
+
+.contacts__group-item--text {
+  margin: .5rem 0;
+}
+
+.contacts__output:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.contacts__output:hover .contacts__edit-item--left {
+  border-radius: 5px;
+  background-color: #3fa4c5;
+}
+
+.contacts__output:hover .contacts__edit-item--right {
+  border-radius: 5px;
+  background-color: #3fa4c5;
+}
+
+.contacts__header-button {
+  border-radius: 5px 0 0 0;
+  cursor: pointer;
+}
+
+.contacts__header-item {
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.contacts__header-item--text {
+  margin: .5rem 0 .5rem 0;
+}
+
+.contacts__header-button-text--left {
+  float: left;
+  margin: .5rem 0 0 1.8rem;
+}
+
+.contacts__header__button-icon--right {
+  float: right;
+  margin: .5rem 0 0 .5rem;
+}
+
+.header--name {
+  background-color: #107394;
+}
+
+.header--surname {
+  background-color: #1280a5;
+}
+
+.header--city {
+  background-color: #1695c0;
+}
+
+.header--email {
+  background-color: #1d9fca;
+}
+
+.header--phone {
+  background-color: #23a9d6;
+}
+
+.header--edit {
+  background-color: #20b3e4;
+  border-radius: 0 5px 0 0;
+}
+/*# sourceMappingURL=contact-list.component.css.map */
