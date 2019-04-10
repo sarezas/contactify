@@ -11,8 +11,6 @@ export class DetailedViewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.contact);
-  }
+  ngOnInit() {}
 
 }

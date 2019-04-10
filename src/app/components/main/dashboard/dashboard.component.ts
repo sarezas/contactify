@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {}
 
   onKeyPress(event: any) {
-   if (event && event.target.value) {
+   if (event) {
     this.valChange.emit(event.target.value);
    }
   }

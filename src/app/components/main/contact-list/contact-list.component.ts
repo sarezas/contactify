@@ -24,7 +24,6 @@ export class ContactListComponent implements OnInit {
   }
 
   showContactDetails(contact: Contact) {
-    console.log(contact);
     this.selectedC.emit(contact);
   }
 }

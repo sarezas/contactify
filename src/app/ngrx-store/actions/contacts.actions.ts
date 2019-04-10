@@ -13,8 +13,7 @@ export const CONTACTS_FILTER_BY_CITY = 'CONTACTS_FILTER_BY_CITY';
 export const CONTACTS_FILTER_BY_CITY_SUCCESS = 'CONTACTS_FILTER_BY_CITY_SUCCESS';
 export const CONTACTS_SHOW_ACTIVE_ONLY = 'CONTACTS_SHOW_ACTIVE_ONLY';
 export const CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS = 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS';
-export const LOAD_SELECTED_CONTACT = 'LOAD_SELECTED_CONTACT';
-// export const LOAD_CONTACT_DETAILS_SUCCESS = 'LOAD_CONTACT_DETAILS_SUCCESS';
+export const LOAD_SELECTED_CONTACT_SUCCESS = 'LOAD_SELECTED_CONTACT_SUCCESS';
 
 export class GetContacts implements Action {
     readonly type = GET_CONTACTS;
@@ -31,6 +30,8 @@ export class ContactsSortAZ implements Action {
 
 export class ContactsSortAZSuccess implements Action {
     readonly type = CONTACTS_SORT_A_Z_SUCCESS;
+    // constructor(public payload: Contact[]) {}
+
     constructor(public payload: {
         contactsArr: Contact[],
         sortedAZ: boolean,
@@ -44,6 +45,8 @@ export class ContactsSortZA implements Action {
 
 export class ContactsSortZASuccess implements Action {
     readonly type = CONTACTS_SORT_Z_A_SUCCESS;
+    // constructor(public payload: Contact[]) {}
+
     constructor(public payload: {
         contactsArr: Contact[],
         sortedAZ: boolean,
@@ -53,6 +56,7 @@ export class ContactsSortZASuccess implements Action {
 
 export class ContactsFilterByName implements Action {
     readonly type = CONTACTS_FILTER_BY_NAME;
+    constructor(public payload: string) {}
 }
 
 export class ContactsFilterByNameSuccess implements Action {
@@ -78,14 +82,10 @@ export class ContactsShowActiveOnlySuccess implements Action {
     constructor(public payload: Contact[]) {}
 }
 
-export class LoadContactDetailsSuccess implements Action {
-    readonly type = LOAD_SELECTED_CONTACT;
+export class LoadSelectedContactSuccess implements Action {
+    readonly type = LOAD_SELECTED_CONTACT_SUCCESS;
     constructor(public payload: Contact) {}
 }
-
-// export class LoadContactDetailsSuccess implements Action {
-//     readonly type = LOAD_CONTACT_DETAILS_SUCCESS;
-// }
 
 export type Actions =
     GetContacts |
@@ -100,5 +100,4 @@ export type Actions =
     ContactsFilterByCitySuccess |
     ContactsShowActiveOnly |
     ContactsShowActiveOnlySuccess |
-    // LoadContactDetails |
-    LoadContactDetailsSuccess;
+    LoadSelectedContactSuccess;

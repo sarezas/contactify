@@ -43,13 +43,19 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-  showVal(event: any) {
-    console.log(event);
+  filterByName(nameFilter: any) {
+    console.log(typeof nameFilter);
+    console.log(nameFilter);
+
+    if (!nameFilter) {
+      this.store.dispatch(new contactsActions.GetContacts());
+    } else {
+      this.store.dispatch(new contactsActions.ContactsFilterByName(nameFilter));
+    }
   }
   seeContact(contact: Contact) {
     this.selectedContact = contact;
-    console.log(this.selectedContact);
-    this.store.dispatch(new contactsActions.LoadContactDetailsSuccess(contact));
+    this.store.dispatch(new contactsActions.LoadSelectedContactSuccess(contact));
   }
 
   ngOnDestroy() {}

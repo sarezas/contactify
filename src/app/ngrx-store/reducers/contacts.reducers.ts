@@ -43,7 +43,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_A_Z_SUCCESS: {
             return {
                 ...state,
-                contacts: action.payload.contactsArr,
+                contacts: [...state.contacts],
                 selectedContact: state.selectedContact,
                 sortedAZ: action.payload.sortedAZ,
                 sortedZA: action.payload.sortedZA
@@ -61,10 +61,10 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_Z_A_SUCCESS: {
             return {
                 ...state,
-                contacts: action.payload.contactsArr,
+                contacts: [...state.contacts],
                 selectedContact: state.selectedContact,
-                sortedAZ: state.sortedAZ,
-                sortedZA: state.sortedZA
+                sortedAZ: action.payload.sortedAZ,
+                sortedZA: action.payload.sortedZA
             };
         }
         case contactsActions.CONTACTS_FILTER_BY_NAME: {
@@ -79,7 +79,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_NAME_SUCCESS: {
             return {
                 ...state,
-                contacts: action.payload,
+                contacts: [...action.payload],
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -97,7 +97,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_CITY_SUCCESS: {
             return {
                 ...state,
-                contacts: action.payload,
+                contacts: state.contacts, ...action.payload,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -121,16 +121,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
                 sortedZA: state.sortedZA
             };
         }
-        // case contactsActions.LOAD_CONTACT_DETAILS: {
-        //     return {
-        //         ...state,
-        //         contacts: [...state.contacts],
-        //         selectedContact: action.payload,
-        //         sortedAZ: state.sortedAZ,
-        //         sortedZA: state.sortedZA
-        //     };
-        // }
-        case contactsActions.LOAD_SELECTED_CONTACT: {
+        case contactsActions.LOAD_SELECTED_CONTACT_SUCCESS: {
             return {
                 ...state,
                 contacts: [...state.contacts],
