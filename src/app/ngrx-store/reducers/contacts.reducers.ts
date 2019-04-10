@@ -121,16 +121,16 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
                 sortedZA: state.sortedZA
             };
         }
-        case contactsActions.LOAD_CONTACT_DETAILS: {
-            return {
-                ...state,
-                contacts: [...state.contacts],
-                selectedContact: state.selectedContact,
-                sortedAZ: state.sortedAZ,
-                sortedZA: state.sortedZA
-            };
-        }
-        case contactsActions.LOAD_CONTACT_DETAILS_SUCCESS: {
+        // case contactsActions.LOAD_CONTACT_DETAILS: {
+        //     return {
+        //         ...state,
+        //         contacts: [...state.contacts],
+        //         selectedContact: action.payload,
+        //         sortedAZ: state.sortedAZ,
+        //         sortedZA: state.sortedZA
+        //     };
+        // }
+        case contactsActions.LOAD_SELECTED_CONTACT: {
             return {
                 ...state,
                 contacts: [...state.contacts],

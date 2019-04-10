@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
-import { Observable, from } from 'rxjs';
+import { map, switchMap, catchError } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
 import * as contactsActions from '../actions/contacts.actions';
 import * as contactsReducers from '../reducers/contacts.reducers';
 
@@ -25,8 +25,9 @@ export class ContactsEffects {
                         type: 'GET_CONTACTS_SUCCESS',
                         payload: data
                     };
-                })
-            );
+                }),
+                catchError(error => of(new contactsActions.GetContacts())
+            ));
         })
     );
 
@@ -53,8 +54,9 @@ export class ContactsEffects {
                             sortedZA: false
                         }
                     };
-                })
-            );
+                }),
+                catchError(error => of(new contactsActions.ContactsSortAZ())
+            ));
         })
     );
 
@@ -81,8 +83,9 @@ export class ContactsEffects {
                             sortedZA: true
                         }
                     };
-                })
-            );
+                }),
+                catchError(error => of(new contactsActions.ContactsSortZA())
+            ));
         })
     );
 }

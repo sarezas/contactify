@@ -1,6 +1,6 @@
 <div class="card contacts__card">
   <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
-  <img *ngIf="selected" src="{{ selectedContact.imgUrl }}" class="card-img-top">
+  <img *ngIf="selected" src="{{ contact.imgUrl }}" class="card-img-top">
   <div class="row card-body">
     <div class="col-md-5 card-body__header">
       <p class="card-text">Name:</p>
@@ -10,16 +10,16 @@
       <p class="card-text">Phone:</p>
     </div>
     <div class="col-md-7 card-body__contact-details">
-      <p *ngIf="!selected" class="card-text"><i>no contact selected</i></p>
-      <p *ngIf="selected" class="card-text">{{ selectedContact.name }}</p>
-      <p *ngIf="!selected" class="card-text"><i>-</i></p>
-      <p *ngIf="selected" class="card-text">{{ selectedContact.surname }}</p>
-      <p *ngIf="!selected" class="card-text"><i>-</i></p>
-      <p *ngIf="selected" class="card-text">{{ selectedContact.city }}</p>
-      <p *ngIf="!selected" class="card-text"><i>-</i></p>
-      <p *ngIf="selected" class="card-text">{{ selectedContact.email }}</p>
-      <p *ngIf="!selected" class="card-text"><i>-</i></p>
-      <p *ngIf="selected" class="card-text">{{ selectedContact.phone }}</p>
+      <p *ngIf="!contact" class="card-text"><i>no contact selected</i></p>
+      <p *ngIf="contact" class="card-text">{{ contact.name }}</p>
+      <p *ngIf="!contact" class="card-text"><i>-</i></p>
+      <p *ngIf="contact" class="card-text">{{ contact.surname }}</p>
+      <p *ngIf="!contact" class="card-text"><i>-</i></p>
+      <p *ngIf="contact" class="card-text">{{ contact.city }}</p>
+      <p *ngIf="!contact" class="card-text"><i>-</i></p>
+      <p *ngIf="contact" class="card-text">{{ contact.email }}</p>
+      <p *ngIf="!contact" class="card-text"><i>-</i></p>
+      <p *ngIf="contact" class="card-text">{{ contact.phone }}</p>
     </div>
   </div>
 </div>

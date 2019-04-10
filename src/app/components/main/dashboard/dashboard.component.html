@@ -4,7 +4,7 @@
       <div class="form-row">
         <div class="col-md-4 filter-form__name-input--wrapper">
           <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
-            [(ngModel)]="searchName" name="searchName">
+            [(ngModel)]="searchName" name="searchName" (keyup)="onKeyPress($event)">
         </div>
         <div class="col-md-3 filter-form__city-input--wrapper">
           <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"

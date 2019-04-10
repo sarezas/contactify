@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Contact } from 'src/app/interfaces/contact';
 
 @Component({
   selector: 'app-detailed-view',
@@ -6,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./detailed-view.component.scss']
 })
 export class DetailedViewComponent implements OnInit {
+  @Input() contact: Contact;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.contact);
   }
 
 }

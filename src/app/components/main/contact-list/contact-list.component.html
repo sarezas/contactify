@@ -23,7 +23,7 @@
   </div>
   <div class="col-md-1 contacts__header-item header--edit"></div>
 </div>
-<div class="row border-bottom contacts__output" *ngFor="let contact of contacts"
+<div class="row border-bottom contacts__output" *ngFor="let contact of contacts | filterName:searchName"
   (click)="showContactDetails(contact)">
   <div class="col-md-2 contacts__group-item">
     <div class="col-md-1 contacts__activity">

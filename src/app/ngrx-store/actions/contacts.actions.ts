@@ -13,8 +13,8 @@ export const CONTACTS_FILTER_BY_CITY = 'CONTACTS_FILTER_BY_CITY';
 export const CONTACTS_FILTER_BY_CITY_SUCCESS = 'CONTACTS_FILTER_BY_CITY_SUCCESS';
 export const CONTACTS_SHOW_ACTIVE_ONLY = 'CONTACTS_SHOW_ACTIVE_ONLY';
 export const CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS = 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS';
-export const LOAD_CONTACT_DETAILS = 'LOAD_CONTACT_DETAILS';
-export const LOAD_CONTACT_DETAILS_SUCCESS = 'LOAD_CONTACT_DETAILS_SUCCESS';
+export const LOAD_SELECTED_CONTACT = 'LOAD_SELECTED_CONTACT';
+// export const LOAD_CONTACT_DETAILS_SUCCESS = 'LOAD_CONTACT_DETAILS_SUCCESS';
 
 export class GetContacts implements Action {
     readonly type = GET_CONTACTS;
@@ -78,14 +78,14 @@ export class ContactsShowActiveOnlySuccess implements Action {
     constructor(public payload: Contact[]) {}
 }
 
-export class LoadContactDetails implements Action {
-    readonly type = LOAD_CONTACT_DETAILS;
-}
-
 export class LoadContactDetailsSuccess implements Action {
-    readonly type = LOAD_CONTACT_DETAILS_SUCCESS;
+    readonly type = LOAD_SELECTED_CONTACT;
     constructor(public payload: Contact) {}
 }
+
+// export class LoadContactDetailsSuccess implements Action {
+//     readonly type = LOAD_CONTACT_DETAILS_SUCCESS;
+// }
 
 export type Actions =
     GetContacts |
@@ -100,5 +100,5 @@ export type Actions =
     ContactsFilterByCitySuccess |
     ContactsShowActiveOnly |
     ContactsShowActiveOnlySuccess |
-    LoadContactDetails |
+    // LoadContactDetails |
     LoadContactDetailsSuccess;
