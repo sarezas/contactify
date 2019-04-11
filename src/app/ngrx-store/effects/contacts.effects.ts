@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Store } from '@ngrx/store';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { map, switchMap, catchError, withLatestFrom } from 'rxjs/operators';
+import { map, switchMap, mergeMap, catchError, withLatestFrom, filter, tap, delay, exhaustMap } from 'rxjs/operators';
 import { Observable, from, of } from 'rxjs';
 import * as contactsActions from '../actions/contacts.actions';
 import { ContactsState } from 'src/app/interfaces/contacts.state';
@@ -13,10 +13,11 @@ export type Action = contactsActions.Actions;
 
 @Injectable()
 export class ContactsEffects {
+    clFilteredByName: Contact[];
     constructor(private actions: Actions, private api: ApiService, private store: Store<ContactsState>) { }
 
     @Effect()
-    getContacts: Observable<any> = this.actions.pipe(
+    getAllContacts: Observable<any> = this.actions.pipe(
         ofType(contactsActions.GET_CONTACTS),
         switchMap(() => {
             return this.api.getAllContacts().pipe(
@@ -26,7 +27,7 @@ export class ContactsEffects {
                         payload: data
                     };
                 }),
-                catchError(error => of(new contactsActions.GetContacts())
+                catchError(() => of(new contactsActions.GetContacts())
             ));
         })
     );
@@ -86,19 +87,49 @@ export class ContactsEffects {
     );
 
     @Effect()
-    filterContactsByName: Observable<any> = this.actions.pipe(
+    filterCLByName$ = this.actions.pipe(
         ofType(contactsActions.CONTACTS_FILTER_BY_NAME),
-        withLatestFrom(this.store.select(store => store.contacts['contacts'])),
-        map(state => {
-            console.log(state);
-            const filter: string = state[0]['payload'];
-            return {
-                type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
-                payload: state[1].filter((contact: Contact) => {
-                    return contact.name.toLowerCase().includes(filter.toLowerCase());
+        switchMap((action: contactsActions.ContactsFilterByName) => {
+            const fs = action.payload;
+            return this.api.filterContacts(fs)
+                .then((data: Contact[]) => {
+                    return {
+                        type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
+                        payload: data
+                    };
                 })
-            };
-        }),
-        catchError((error) => of(new contactsActions.ContactsFilterByName(error)))
+                .then(resp => resp)
+                .catch((error) => of(new contactsActions.ContactsFilterByNameSuccess(error)));
+        })
     );
+
+
+
+    // @Effect()
+    // filterContactsByCity: Observable<any> = this.actions.pipe(
+    //     ofType(contactsActions.CONTACTS_FILTER_BY_CITY),
+    //     withLatestFrom(this.store.select(store => store.contacts['contacts'])),
+    //     map(state => {
+    //         console.log(state);
+    //         const filterStr: string = state[0]['payload'];
+    //         return {
+    //             type: 'CONTACTS_FILTER_BY_CITY_SUCCESS',
+    //             payload: state[1].filter((contact: Contact) => {
+    //                 return contact.city.toLowerCase() === filterStr.toLowerCase();
+    //             })
+    //         };
+    //     }),
+    //     catchError((error) => of(new contactsActions.ContactsFilterByName(error)))
+    // );
+
+    private setState(stateName: string, injection: Contact[], time?: number) {
+        setTimeout(() => {
+            console.log(stateName);
+            console.log(injection);
+            return {
+                type: stateName,
+                payload: injection
+            };
+        }, time);
+    }
 }

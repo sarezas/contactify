@@ -15,7 +15,8 @@ export class DashboardComponent implements OnInit {
   @Input() cl: Contact[] = contacts;
   @Input() al: Contact[] = this.cl.filter(c => c.active === true);
   @Output() filterForm: NgForm;
-  @Output() valChange = new EventEmitter<string>();
+  @Output() nameValChange = new EventEmitter<string>();
+  @Output() cityValChange = new EventEmitter<string>();
 
   constructor() { }
 
@@ -23,7 +24,13 @@ export class DashboardComponent implements OnInit {
 
   onKeyPress(event: any) {
    if (event) {
-    this.valChange.emit(event.target.value);
+    this.nameValChange.emit(event.target.value);
    }
+  }
+
+  onChange(event: any) {
+    if (event) {
+      this.cityValChange.emit(event.target.value);
+     }
   }
 }

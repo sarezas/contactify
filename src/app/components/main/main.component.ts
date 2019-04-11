@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ContactsState } from 'src/app/interfaces/contacts.state';
 import * as contactsActions from '../../ngrx-store/actions/contacts.actions';
 import { Contact } from '../../interfaces/contact';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -19,7 +20,7 @@ export class MainComponent implements OnInit, OnDestroy {
   sortedZA: boolean;
   sorted = false;
 
-  constructor(private store: Store<ContactsState>) {
+  constructor(private store: Store<ContactsState>, private api: ApiService) {
     this.contacts$ = this.store.select('contacts');
     this.contacts$.subscribe((contacts: Contact[]) => {
       this.cl = contacts['contacts'];
@@ -30,6 +31,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.api.getAllContacts();
     this.store.dispatch(new contactsActions.GetContacts());
   }
 
@@ -43,16 +45,22 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-  filterByName(nameFilter: any) {
-    console.log(typeof nameFilter);
-    console.log(nameFilter);
-
+  filterByName(nameFilter: string) {
     if (!nameFilter) {
       this.store.dispatch(new contactsActions.GetContacts());
     } else {
       this.store.dispatch(new contactsActions.ContactsFilterByName(nameFilter));
     }
   }
+
+  filterByCity(cityFilter: string) {
+    if (!cityFilter) {
+      this.store.dispatch(new contactsActions.GetContacts());
+    } else {
+      this.store.dispatch(new contactsActions.ContactsFilterByCity(cityFilter));
+    }
+  }
+
   seeContact(contact: Contact) {
     this.selectedContact = contact;
     this.store.dispatch(new contactsActions.LoadSelectedContactSuccess(contact));

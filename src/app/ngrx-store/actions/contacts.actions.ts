@@ -30,7 +30,6 @@ export class ContactsSortAZ implements Action {
 
 export class ContactsSortAZSuccess implements Action {
     readonly type = CONTACTS_SORT_A_Z_SUCCESS;
-    // constructor(public payload: Contact[]) {}
 
     constructor(public payload: {
         contactsArr: Contact[],
@@ -45,7 +44,6 @@ export class ContactsSortZA implements Action {
 
 export class ContactsSortZASuccess implements Action {
     readonly type = CONTACTS_SORT_Z_A_SUCCESS;
-    // constructor(public payload: Contact[]) {}
 
     constructor(public payload: {
         contactsArr: Contact[],
@@ -66,6 +64,7 @@ export class ContactsFilterByNameSuccess implements Action {
 
 export class ContactsFilterByCity implements Action {
     readonly type = CONTACTS_FILTER_BY_CITY;
+    constructor(public payload: string) {}
 }
 
 export class ContactsFilterByCitySuccess implements Action {

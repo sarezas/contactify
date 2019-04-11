@@ -5,11 +5,12 @@
       <div class="form-row">
         <div class="col-md-4 filter-form__name-input--wrapper">
           <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
-            [(ngModel)]="searchName" name="searchName" (keyup)="onKeyPress($event)">
+            [(ngModel)]="searchName" name="searchName"
+            (keyup)="onKeyPress($event)" (paste)="onKeyPress($event)">
         </div>
         <div class="col-md-3 filter-form__city-input--wrapper">
           <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
-            placeholder="City">
+            placeholder="City" (oninput)="onChange($event)">
             <option>All</option>
             <option>Hong Kong</option>
             <option>London</option>

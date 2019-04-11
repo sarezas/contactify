@@ -1,5 +1,7 @@
 <div class="container-fluid dashboard--wrapper">
-    <app-dashboard (valChange)="filterByName($event)"></app-dashboard>
+    <app-dashboard
+        (nameValChange)="filterByName($event)"
+        (cityValChange)="filterByCity($event)"></app-dashboard>
 </div>
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">

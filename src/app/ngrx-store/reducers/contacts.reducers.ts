@@ -16,7 +16,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.GET_CONTACTS: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -34,7 +34,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_A_Z: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -43,7 +43,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_A_Z_SUCCESS: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: action.payload.sortedAZ,
                 sortedZA: action.payload.sortedZA
@@ -52,7 +52,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_Z_A: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -61,7 +61,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SORT_Z_A_SUCCESS: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: action.payload.sortedAZ,
                 sortedZA: action.payload.sortedZA
@@ -70,7 +70,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_NAME: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -79,7 +79,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_NAME_SUCCESS: {
             return {
                 ...state,
-                contacts: [...action.payload],
+                contacts: action.payload,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -88,7 +88,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_CITY: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -97,7 +97,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_FILTER_BY_CITY_SUCCESS: {
             return {
                 ...state,
-                contacts: state.contacts, ...action.payload,
+                contacts: action.payload,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -106,7 +106,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.CONTACTS_SHOW_ACTIVE_ONLY: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
@@ -124,7 +124,7 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
         case contactsActions.LOAD_SELECTED_CONTACT_SUCCESS: {
             return {
                 ...state,
-                contacts: [...state.contacts],
+                contacts: state.contacts,
                 selectedContact: action.payload,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA
