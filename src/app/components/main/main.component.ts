@@ -54,7 +54,9 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   filterByCity(cityFilter: string) {
-    if (!cityFilter) {
+    console.log(cityFilter);
+    // this.store.dispatch(new contactsActions.ContactsFilterByCity(cityFilter));
+    if (cityFilter === 'All') {
       this.store.dispatch(new contactsActions.GetContacts());
     } else {
       this.store.dispatch(new contactsActions.ContactsFilterByCity(cityFilter));

@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-3 filter-form__city-input--wrapper">
           <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
-            placeholder="City" (oninput)="onChange($event)">
+            placeholder="City" (change)="onChange($event)">
             <option>All</option>
             <option>Hong Kong</option>
             <option>London</option>

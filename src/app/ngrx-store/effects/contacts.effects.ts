@@ -87,23 +87,38 @@ export class ContactsEffects {
     );
 
     @Effect()
-    filterCLByName$ = this.actions.pipe(
+    filterCLByName = this.actions.pipe(
         ofType(contactsActions.CONTACTS_FILTER_BY_NAME),
         switchMap((action: contactsActions.ContactsFilterByName) => {
-            const fs = action.payload;
-            return this.api.filterContacts(fs)
+            const filterString = action.payload;
+            return this.api.filterContactsByName(filterString)
                 .then((data: Contact[]) => {
                     return {
                         type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
                         payload: data
                     };
                 })
-                .then(resp => resp)
+                .then(response => response)
                 .catch((error) => of(new contactsActions.ContactsFilterByNameSuccess(error)));
         })
     );
 
-
+    @Effect()
+    filterCLByCity = this.actions.pipe(
+        ofType(contactsActions.CONTACTS_FILTER_BY_CITY),
+        switchMap((action: contactsActions.ContactsFilterByCity) => {
+            const filterString = action.payload;
+            return this.api.filterContactsByCity(filterString)
+                .then((data: Contact[]) => {
+                    return {
+                        type: 'CONTACTS_FILTER_BY_CITY_SUCCESS',
+                        payload: data
+                    };
+                })
+                .then(response => response)
+                .catch((error) => of(new contactsActions.ContactsFilterByNameSuccess(error)));
+        })
+    );
 
     // @Effect()
     // filterContactsByCity: Observable<any> = this.actions.pipe(
@@ -122,14 +137,14 @@ export class ContactsEffects {
     //     catchError((error) => of(new contactsActions.ContactsFilterByName(error)))
     // );
 
-    private setState(stateName: string, injection: Contact[], time?: number) {
-        setTimeout(() => {
-            console.log(stateName);
-            console.log(injection);
-            return {
-                type: stateName,
-                payload: injection
-            };
-        }, time);
-    }
+    // private setState(stateName: string, injection: Contact[], time?: number) {
+    //     setTimeout(() => {
+    //         console.log(stateName);
+    //         console.log(injection);
+    //         return {
+    //             type: stateName,
+    //             payload: injection
+    //         };
+    //     }, time);
+    // }
 }
