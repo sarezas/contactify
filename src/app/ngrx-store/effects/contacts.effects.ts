@@ -91,7 +91,7 @@ export class ContactsEffects {
         ofType(contactsActions.CONTACTS_SHOW_ACTIVE_ONLY),
         switchMap((action: contactsActions.ContactsShowActiveOnly) => {
             if (action.payload === 'All') {
-                return this.api.filterContactsByActivity()
+                return this.api.filterContactsByActivity(action.payload)
                 .then((data: Contact[]) => {
                     return {
                         type: 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS',

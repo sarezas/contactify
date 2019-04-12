@@ -14,7 +14,7 @@ export class ApiService {
     return this.http.get<any>(this.path);
   }
 
-  filterContactsByActivity(filterStr?: string): any {
+  filterContactsByActivity(filterStr: string): any {
     return this.http.get<Contact[]>(this.path)
       .toPromise()
       .then((contacts: Contact[]) => {
