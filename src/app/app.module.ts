@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { DashboardComponent } from './components/main/dashboard/dashboard.component';
 import { DetailedViewComponent } from './components/main/detailed-view/detailed-view.component';
 import { ContactListComponent } from './components/main/contact-list/contact-list.component';
@@ -24,7 +23,6 @@ import { ContactsEffects } from '../app/ngrx-store/effects/contacts.effects';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    NameFilterPipe,
     DashboardComponent,
     DetailedViewComponent,
     ContactListComponent

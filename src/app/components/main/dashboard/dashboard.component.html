@@ -1,16 +1,15 @@
 <div class="row dashboard">
   <div class="col-md-9 dashboard__filter">
-    <!-- <form (ngSubmit)="filterContacts(f)" #f="ngForm"> -->
-    <form>
+    <!-- form one event listener start -->
+    <form (ngSubmit)="filterInputChange(f)" #f="ngForm">
       <div class="form-row">
         <div class="col-md-4 filter-form__name-input--wrapper">
           <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
-            [(ngModel)]="searchName" name="searchName"
-            (keyup)="onKeyPress($event)" (paste)="onKeyPress($event)">
+            (keyup)="nameInputChange($event)" (paste)="onNameInputChange($event)">
         </div>
         <div class="col-md-3 filter-form__city-input--wrapper">
           <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
-            placeholder="City" (change)="onChange($event)">
+            placeholder="City">
             <option>All</option>
             <option>Hong Kong</option>
             <option>London</option>
@@ -21,7 +20,7 @@
         </div>
         <div class="col-md-2 m-1 filter-form__checkbox--wrapper">
           <div class="filter-form__checkbox--border">
-            <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox">
+            <input class="filter-form__checkbox--checker" type="checkbox" [(ngModel)]="checkbox" name="checkbox">
           </div>
           <p class="filter-form__checkbox--text">show active</p>
         </div>
@@ -30,6 +29,39 @@
         </div>
       </div>
     </form>
+    <!-- form one event listener start -->
+      <!-- form separate event listeners start-->
+      <!-- <form>
+      <div class="form-row">
+        <div class="col-md-4 filter-form__name-input--wrapper">
+          <input type="text" class="form-control filter-form__name-input borders" placeholder="Name"
+            [(ngModel)]="searchName" name="searchName"
+            (keyup)="onNameInputChange($event)" (paste)="onKeyPress($event)">
+        </div>
+        <div class="col-md-3 filter-form__city-input--wrapper">
+          <select class="form-control filter-form__city-input borders" [(ngModel)]="searchCity" name="searchCity"
+            placeholder="City" (change)="onChangeCity($event)">
+            <option>All</option>
+            <option>Hong Kong</option>
+            <option>London</option>
+            <option>Los Angeles</option>
+            <option>Sydney</option>
+            <option>Singapore</option>
+          </select>
+        </div>
+        <div class="col-md-2 m-1 filter-form__checkbox--wrapper">
+          <div class="filter-form__checkbox--border">
+            <input class="filter-form__checkbox--checker" type="checkbox" #checkbox ngModel name="checkbox"
+              (change)="onChangeActivity($event)">
+          </div>
+          <p class="filter-form__checkbox--text">show active</p>
+        </div>
+        <div class="col-md-2 filter-form__submit-button--wrapper">
+          <button type="submit" class="btn filter-form__submit-button">filter</button>
+        </div>
+      </div>
+    </form> -->
+    <!-- form separate event listeners start -->
   </div>
   <div class="col-md-3 dashboard__add-new-button--wrapper">
     <button class="btn dashboard__add-new-button">

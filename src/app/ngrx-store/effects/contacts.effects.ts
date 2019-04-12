@@ -33,7 +33,7 @@ export class ContactsEffects {
     );
 
     @Effect()
-    sortContactsAZ: Observable<any> = this.actions.pipe(
+    sortCLAZ: Observable<any> = this.actions.pipe(
         ofType(contactsActions.CONTACTS_SORT_A_Z),
         withLatestFrom(this.store.select(store => store.contacts['contacts'])),
         map(state => {
@@ -56,11 +56,11 @@ export class ContactsEffects {
                 }
             };
         }),
-        catchError((error) => of(new contactsActions.ContactsSortAZ()))
+        catchError(() => of(new contactsActions.ContactsSortAZ()))
     );
 
     @Effect()
-    sortContactsZA: Observable<any> = this.actions.pipe(
+    sortCLZA: Observable<any> = this.actions.pipe(
         ofType(contactsActions.CONTACTS_SORT_Z_A),
         withLatestFrom(this.store.select(store => store.contacts['contacts'])),
         map(state => {
@@ -83,24 +83,36 @@ export class ContactsEffects {
                 }
             };
         }),
-        catchError((error) => of(new contactsActions.ContactsSortZA()))
+        catchError(() => of(new contactsActions.ContactsSortZA()))
     );
 
     @Effect()
-    filterCLByName = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_FILTER_BY_NAME),
-        switchMap((action: contactsActions.ContactsFilterByName) => {
-            const filterString = action.payload;
-            return this.api.filterContactsByName(filterString)
+    filterCLByActivity = this.actions.pipe(
+        ofType(contactsActions.CONTACTS_SHOW_ACTIVE_ONLY),
+        switchMap((action: contactsActions.ContactsShowActiveOnly) => {
+            if (action.payload === 'All') {
+                return this.api.filterContactsByActivity()
                 .then((data: Contact[]) => {
                     return {
-                        type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
+                        type: 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS',
                         payload: data
                     };
                 })
-                .then(response => response)
-                .catch((error) => of(new contactsActions.ContactsFilterByNameSuccess(error)));
-        })
+                .then((response: Response) => response)
+                .catch((error: Error) => of(new contactsActions.ContactsShowActiveOnly((error.message))));
+            } else {
+                return this.api.filterContactsByActivity(action.payload)
+                .then((data: Contact[]) => {
+                    return {
+                        type: 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS',
+                        payload: data
+                    };
+                })
+                .then((response: Response) => response)
+                .catch((error: Error) => of(new contactsActions.ContactsShowActiveOnly((error.message))));
+            }
+            }
+        )
     );
 
     @Effect()
@@ -115,36 +127,25 @@ export class ContactsEffects {
                         payload: data
                     };
                 })
-                .then(response => response)
-                .catch((error) => of(new contactsActions.ContactsFilterByNameSuccess(error)));
+                .then((response: Response) => response)
+                .catch((error: Error) => of(new contactsActions.ContactsFilterByCity(error.message)));
         })
     );
 
-    // @Effect()
-    // filterContactsByCity: Observable<any> = this.actions.pipe(
-    //     ofType(contactsActions.CONTACTS_FILTER_BY_CITY),
-    //     withLatestFrom(this.store.select(store => store.contacts['contacts'])),
-    //     map(state => {
-    //         console.log(state);
-    //         const filterStr: string = state[0]['payload'];
-    //         return {
-    //             type: 'CONTACTS_FILTER_BY_CITY_SUCCESS',
-    //             payload: state[1].filter((contact: Contact) => {
-    //                 return contact.city.toLowerCase() === filterStr.toLowerCase();
-    //             })
-    //         };
-    //     }),
-    //     catchError((error) => of(new contactsActions.ContactsFilterByName(error)))
-    // );
-
-    // private setState(stateName: string, injection: Contact[], time?: number) {
-    //     setTimeout(() => {
-    //         console.log(stateName);
-    //         console.log(injection);
-    //         return {
-    //             type: stateName,
-    //             payload: injection
-    //         };
-    //     }, time);
-    // }
+    @Effect()
+    filterCLByName = this.actions.pipe(
+        ofType(contactsActions.CONTACTS_FILTER_BY_NAME),
+        switchMap((action: contactsActions.ContactsFilterByName) => {
+            const filterString = action.payload;
+            return this.api.filterContactsByName(filterString)
+                .then((data: Contact[]) => {
+                    return {
+                        type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
+                        payload: data
+                    };
+                })
+                .then((response: Response) => response)
+                .catch((error: Error) => of(new contactsActions.ContactsFilterByName(error.message)));
+        })
+    );
 }

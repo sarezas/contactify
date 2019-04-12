@@ -74,6 +74,7 @@ export class ContactsFilterByCitySuccess implements Action {
 
 export class ContactsShowActiveOnly implements Action {
     readonly type = CONTACTS_SHOW_ACTIVE_ONLY;
+    constructor(public payload?: string) {}
 }
 
 export class ContactsShowActiveOnlySuccess implements Action {

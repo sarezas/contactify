@@ -11,26 +11,23 @@ import { Contact } from '../../../interfaces/contact';
 })
 export class DashboardComponent implements OnInit {
   searchCity = 'All';
-  @ViewChild('checkbox') checkbox: ElementRef;
-  @Input() cl: Contact[] = contacts;
-  @Input() al: Contact[] = this.cl.filter(c => c.active === true);
-  @Output() filterForm: NgForm;
+  @Output() activityValChange = new EventEmitter<boolean>();
+  @Output() filterValChange = new EventEmitter<NgForm>();
   @Output() nameValChange = new EventEmitter<string>();
-  @Output() cityValChange = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {}
 
-  onKeyPress(event: any) {
-   if (event) {
-    this.nameValChange.emit(event.target.value);
-   }
+  filterInputChange(form: NgForm) {
+    // console.log(form.value);
+    this.filterValChange.emit(form.value);
+    // this.cityValChange.emit(form.value.searchCity);
   }
 
-  onChange(event: any) {
+  nameInputChange(event: any) {
     if (event) {
-      this.cityValChange.emit(event.target.value);
-     }
+    this.nameValChange.emit(event.target.value);
+    }
   }
 }

@@ -24,7 +24,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.contacts$ = this.store.select('contacts');
     this.contacts$.subscribe((contacts: Contact[]) => {
       this.cl = contacts['contacts'];
-      // this.selectedContact = contacts['selectedContact'];
       this.sortedAZ = contacts['sortedAZ'];
       this.sortedZA = contacts['sortedZA'];
     });
@@ -33,6 +32,30 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.api.getAllContacts();
     this.store.dispatch(new contactsActions.GetContacts());
+  }
+
+  filterContacts(form: any) {
+    const activity = form.checkbox;
+    const city = form.searchCity;
+    const any = /.+/;
+
+    // if city all and activity false
+    if (city === 'All' && (activity === undefined || activity === false)) {
+      console.log(`from: ${city}, active: ${activity}`);
+      this.store.dispatch(new contactsActions.GetContacts());
+    // if city all and activity true
+    } else if (city === 'All' && activity === true) {
+      console.log(`from: ${city}, active: ${activity}`);
+      this.store.dispatch(new contactsActions.ContactsShowActiveOnly(city));
+    // if city any and activity false
+    } else if (city !== 'All' && (activity === undefined || activity === false)) {
+      console.log(`from: ${city}, active: ${activity}`);
+      this.store.dispatch(new contactsActions.ContactsFilterByCity(city));
+    // if city any and activity true
+    } else if (city !== 'All' && activity === true) {
+      console.log(`from: ${city}, active: ${activity}`);
+      this.store.dispatch(new contactsActions.ContactsShowActiveOnly(city));
+    }
   }
 
   handleSorting() {
@@ -53,20 +76,10 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-  filterByCity(cityFilter: string) {
-    console.log(cityFilter);
-    // this.store.dispatch(new contactsActions.ContactsFilterByCity(cityFilter));
-    if (cityFilter === 'All') {
-      this.store.dispatch(new contactsActions.GetContacts());
-    } else {
-      this.store.dispatch(new contactsActions.ContactsFilterByCity(cityFilter));
-    }
-  }
-
-  seeContact(contact: Contact) {
-    this.selectedContact = contact;
-    this.store.dispatch(new contactsActions.LoadSelectedContactSuccess(contact));
-  }
+  // seeContact(contact: Contact) {
+  //   this.selectedContact = contact;
+  //   this.store.dispatch(new contactsActions.LoadSelectedContactSuccess(contact));
+  // }
 
   ngOnDestroy() {}
 }

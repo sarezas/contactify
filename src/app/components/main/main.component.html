@@ -1,7 +1,15 @@
 <div class="container-fluid dashboard--wrapper">
-    <app-dashboard
-        (nameValChange)="filterByName($event)"
-        (cityValChange)="filterByCity($event)"></app-dashboard>
+    <!-- separate event handlers form start -->
+    <!-- <app-dashboard
+        (activityValChange)="filterActivity($event)"
+        (cityValChange)="filterByCity($event)"
+        (nameValChange)="filterByName($event)">
+    </app-dashboard> -->
+    <!-- separate event handlers for end -->
+    <!-- one event handler form start -->
+    <app-dashboard (nameValChange)="filterByName($event)" (filterValChange)="filterContacts($event)">
+    </app-dashboard>
+    <!-- one event handler form end -->
 </div>
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">
@@ -9,12 +17,8 @@
             <app-detailed-view [contact]="selectedContact"></app-detailed-view>
         </div>
         <div class="col-md-9 contacts--list">
-            <app-contact-list
-                [contacts]="cl"
-                (sortContacts)="handleSorting($event)"
-                (selectedC)="seeContact($event)"
-                [sortedAZ]="sortedAZ"
-                [sortedZA]="sortedZA">
+            <app-contact-list [contacts]="cl" (sortContacts)="handleSorting($event)"
+                (selectedC)="seeContact($event)" [sortedAZ]="sortedAZ" [sortedZA]="sortedZA">
             </app-contact-list>
         </div>
     </div>
