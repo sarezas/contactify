@@ -49,7 +49,7 @@ export class ApiService {
 
   loadSelectedContact(id: number): any {
     return this.http.get<Contact[]>(this.path)
-      .pipe(delay(500))
+      .pipe(delay(650))
         .toPromise()
         .then((contacts: Contact[]) => contacts)
         .then((contacts: Contact[]) => {

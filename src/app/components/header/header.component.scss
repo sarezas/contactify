@@ -144,6 +144,11 @@ $desktop-xl: 1920px;
   justify-content: space-between;
 }
 
+.header__dropdown--selection-item:hover {
+  background-color: rgb(11, 146, 190);
+  color: rgb(172, 168, 158);
+}
+
 .dropdown-menu {
   position: relative;
   top: 1.8rem !important;
@@ -153,9 +158,10 @@ $desktop-xl: 1920px;
   background-color: rgb(11, 146, 190) !important;
 }
 
-.dropdown-menu:focus {
+.header__dropdown--button:focus {
   outline: none !important;
   border: none !important;
+  background-color: rgb(11, 146, 190);
 }
 
 // .dropdown-menu:active {
