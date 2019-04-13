@@ -14,11 +14,11 @@
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">
         <div class="col-md-3 contacts__detailed-view">
-            <app-detailed-view [contact]="selectedContact"></app-detailed-view>
+            <app-detailed-view [contact]="selectedContact" [isLoading]="loading"></app-detailed-view>
         </div>
         <div class="col-md-9 contacts--list">
             <app-contact-list [contacts]="cl" (sortContacts)="handleSorting($event)"
-                (selectedC)="seeContact($event)" [sortedAZ]="sortedAZ" [sortedZA]="sortedZA">
+                (selectedC)="loadContactDetails($event)" [sortedAZ]="sortedAZ" [sortedZA]="sortedZA">
             </app-contact-list>
         </div>
     </div>

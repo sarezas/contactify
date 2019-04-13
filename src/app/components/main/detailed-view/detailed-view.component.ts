@@ -8,9 +8,15 @@ import { Contact } from 'src/app/interfaces/contact';
 })
 export class DetailedViewComponent implements OnInit {
   @Input() contact: Contact;
+  @Input() isLoading: false;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.contact);
+    setTimeout(() => {
+      console.log(this.contact);
+    }, 10000);
+  }
 
 }

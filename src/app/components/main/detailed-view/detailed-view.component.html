@@ -1,6 +1,9 @@
 <div class="card contacts__card">
-  <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
-  <img *ngIf="selected" src="{{ contact.imgUrl }}" class="card-img-top">
+  <div class="card__image">
+    <span class="card__spinner" *ngIf="isLoading">Yo!</span>
+    <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
+    <img *ngIf="selected" src="{{ contact.imgUrl }}" class="card-img-top">
+  </div>
   <div class="row card-body">
     <div class="col-md-5 card-body__header">
       <p class="card-text">Name:</p>
@@ -9,17 +12,18 @@
       <p class="card-text">Email:</p>
       <p class="card-text">Phone:</p>
     </div>
-    <div class="col-md-7 card-body__contact-details">
+    <div class="col-md-7 card-body__contact-details" *ngFor="let props of contact">
       <p *ngIf="!contact" class="card-text"><i>no contact selected</i></p>
-      <p *ngIf="contact" class="card-text">{{ contact.name }}</p>
+      <p *ngIf="contact" class="card-text">{{ props.name }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
-      <p *ngIf="contact" class="card-text">{{ contact.surname }}</p>
+      <p *ngIf="contact" class="card-text">{{ props.surname }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
-      <p *ngIf="contact" class="card-text">{{ contact.city }}</p>
+      <p *ngIf="contact" class="card-text">{{ props.city }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
-      <p *ngIf="contact" class="card-text">{{ contact.email }}</p>
+      <p *ngIf="contact" class="card-text">{{ props.email }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
-      <p *ngIf="contact" class="card-text">{{ contact.phone }}</p>
+      <p *ngIf="contact" class="card-text">{{ props.phone }}</p>
     </div>
+    <!-- <div *ngFor="let props of contact">{{ props.name }}</div> -->
   </div>
 </div>

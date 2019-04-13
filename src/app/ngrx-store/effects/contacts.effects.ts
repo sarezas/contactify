@@ -18,23 +18,23 @@ export class ContactsEffects {
 
     @Effect()
     getAllContacts: Observable<any> = this.actions.pipe(
-        ofType(contactsActions.GET_CONTACTS),
+        ofType(contactsActions.GET_ALL_CONTACTS),
         switchMap(() => {
             return this.api.getAllContacts().pipe(
                 map((data: Contact[]) => {
                     return {
-                        type: 'GET_CONTACTS_SUCCESS',
+                        type: 'GET_ALL_CONTACTS_SUCCESS',
                         payload: data
                     };
                 }),
-                catchError(() => of(new contactsActions.GetContacts())
+                catchError(() => of(new contactsActions.GetAllContacts())
             ));
         })
     );
 
     @Effect()
     sortCLAZ: Observable<any> = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_SORT_A_Z),
+        ofType(contactsActions.SORT_A_Z),
         withLatestFrom(this.store.select(store => store.contacts['contacts'])),
         map(state => {
             const contactList: Contact[] = state[1];
@@ -48,7 +48,7 @@ export class ContactsEffects {
                 }
             });
             return {
-                type: 'CONTACTS_SORT_A_Z_SUCCESS',
+                type: 'SORT_A_Z_SUCCESS',
                 payload: {
                     contactsArr: sortedContactsAZ,
                     sortedAZ: true,
@@ -56,12 +56,12 @@ export class ContactsEffects {
                 }
             };
         }),
-        catchError(() => of(new contactsActions.ContactsSortAZ()))
+        catchError(() => of(new contactsActions.SortAZ()))
     );
 
     @Effect()
     sortCLZA: Observable<any> = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_SORT_Z_A),
+        ofType(contactsActions.SORT_Z_A),
         withLatestFrom(this.store.select(store => store.contacts['contacts'])),
         map(state => {
             const contactList: Contact[] = state[1];
@@ -75,7 +75,7 @@ export class ContactsEffects {
                 }
             });
             return {
-                type: 'CONTACTS_SORT_Z_A_SUCCESS',
+                type: 'SORT_Z_A_SUCCESS',
                 payload: {
                     contactsArr: sortedContactsZA,
                     sortedAZ: false,
@@ -83,69 +83,84 @@ export class ContactsEffects {
                 }
             };
         }),
-        catchError(() => of(new contactsActions.ContactsSortZA()))
+        catchError(() => of(new contactsActions.SortZA()))
     );
 
     @Effect()
     filterCLByActivity = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_SHOW_ACTIVE_ONLY),
-        switchMap((action: contactsActions.ContactsShowActiveOnly) => {
+        ofType(contactsActions.SHOW_ACTIVE_ONLY),
+        switchMap((action: contactsActions.ShowActiveOnly) => {
             if (action.payload === 'All') {
                 return this.api.filterContactsByActivity(action.payload)
                 .then((data: Contact[]) => {
                     return {
-                        type: 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS',
+                        type: 'SHOW_ACTIVE_ONLY_SUCCESS',
                         payload: data
                     };
                 })
-                .then((response: Response) => response)
-                .catch((error: Error) => of(new contactsActions.ContactsShowActiveOnly((error.message))));
+                .catch((error: Error) => of(new contactsActions.ShowActiveOnly((error.message))));
             } else {
                 return this.api.filterContactsByActivity(action.payload)
                 .then((data: Contact[]) => {
                     return {
-                        type: 'CONTACTS_SHOW_ACTIVE_ONLY_SUCCESS',
+                        type: 'SHOW_ACTIVE_ONLY_SUCCESS',
                         payload: data
                     };
                 })
-                .then((response: Response) => response)
-                .catch((error: Error) => of(new contactsActions.ContactsShowActiveOnly((error.message))));
+                .catch((error: Error) => of(new contactsActions.ShowActiveOnly((error.message))));
             }
-            }
-        )
+        })
     );
 
     @Effect()
     filterCLByCity = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_FILTER_BY_CITY),
-        switchMap((action: contactsActions.ContactsFilterByCity) => {
+        ofType(contactsActions.FILTER_BY_CITY),
+        switchMap((action: contactsActions.FilterByCity) => {
             const filterString = action.payload;
             return this.api.filterContactsByCity(filterString)
                 .then((data: Contact[]) => {
                     return {
-                        type: 'CONTACTS_FILTER_BY_CITY_SUCCESS',
+                        type: 'FILTER_BY_CITY_SUCCESS',
                         payload: data
                     };
                 })
-                .then((response: Response) => response)
-                .catch((error: Error) => of(new contactsActions.ContactsFilterByCity(error.message)));
+                .catch((error: Error) => of(new contactsActions.FilterByCity(error.message)));
         })
     );
 
     @Effect()
     filterCLByName = this.actions.pipe(
-        ofType(contactsActions.CONTACTS_FILTER_BY_NAME),
-        switchMap((action: contactsActions.ContactsFilterByName) => {
+        ofType(contactsActions.FILTER_BY_NAME),
+        switchMap((action: contactsActions.FilterByName) => {
             const filterString = action.payload;
             return this.api.filterContactsByName(filterString)
                 .then((data: Contact[]) => {
                     return {
-                        type: 'CONTACTS_FILTER_BY_NAME_SUCCESS',
+                        type: 'FILTER_BY_NAME_SUCCESS',
                         payload: data
                     };
                 })
-                .then((response: Response) => response)
-                .catch((error: Error) => of(new contactsActions.ContactsFilterByName(error.message)));
+                .catch((error: Error) => of(new contactsActions.FilterByName(error.message)));
         })
     );
+
+    @Effect()
+    loadSelected = this.actions.pipe(
+        ofType(contactsActions.LOAD_SELECTED),
+        switchMap((action: contactsActions.LoadSelected) => {
+            const selectedId = action.payload;
+            return this.api.loadSelectedContact(selectedId)
+                .then((data: Contact) => {
+                    return {
+                        type: 'LOAD_SELECTED_SUCCESS',
+                        payload: data
+                    };
+                })
+                .catch((error: Error) => of(new contactsActions.FilterByName(error.message)));
+        })
+    );
+
+    DOMEffect() {
+        console.log();
+    }
 }
