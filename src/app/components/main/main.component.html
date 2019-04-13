@@ -1,15 +1,6 @@
 <div class="container-fluid dashboard--wrapper">
-    <!-- separate event handlers form start -->
-    <!-- <app-dashboard
-        (activityValChange)="filterActivity($event)"
-        (cityValChange)="filterByCity($event)"
-        (nameValChange)="filterByName($event)">
-    </app-dashboard> -->
-    <!-- separate event handlers for end -->
-    <!-- one event handler form start -->
     <app-dashboard (nameValChange)="filterByName($event)" (filterValChange)="filterContacts($event)">
     </app-dashboard>
-    <!-- one event handler form end -->
 </div>
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">

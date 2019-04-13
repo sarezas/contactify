@@ -83,7 +83,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   loadContactDetails(contact: Contact) {
-    // this.selectedContact = contact;
     const id = contact.id;
     this.store.dispatch(new contactsActions.LoadSelected(id));
   }

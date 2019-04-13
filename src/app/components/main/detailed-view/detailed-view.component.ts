@@ -12,11 +12,6 @@ export class DetailedViewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.contact);
-    setTimeout(() => {
-      console.log(this.contact);
-    }, 10000);
-  }
+  ngOnInit() {}
 
 }

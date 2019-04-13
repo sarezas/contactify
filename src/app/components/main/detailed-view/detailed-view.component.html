@@ -1,8 +1,8 @@
 <div class="card contacts__card">
   <div class="card__image">
-    <span class="card__spinner" *ngIf="isLoading">Yo!</span>
-    <img *ngIf="!selected" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
+    <img *ngIf="!isLoading" src="../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
     <img *ngIf="selected" src="{{ contact.imgUrl }}" class="card-img-top">
+    <i *ngIf="isLoading" class="fas fa-spinner fa-spin card__spinner"></i>
   </div>
   <div class="row card-body">
     <div class="col-md-5 card-body__header">
@@ -13,8 +13,8 @@
       <p class="card-text">Phone:</p>
     </div>
     <div class="col-md-7 card-body__contact-details" *ngFor="let props of contact">
-      <p *ngIf="!contact" class="card-text"><i>no contact selected</i></p>
-      <p *ngIf="contact" class="card-text">{{ props.name }}</p>
+      <p *ngIf="!props" class="card-text"><i>no contact selected</i></p>
+      <p *ngIf="props" class="card-text">{{ props.name }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
       <p *ngIf="contact" class="card-text">{{ props.surname }}</p>
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
@@ -24,6 +24,5 @@
       <p *ngIf="!contact" class="card-text"><i>-</i></p>
       <p *ngIf="contact" class="card-text">{{ props.phone }}</p>
     </div>
-    <!-- <div *ngFor="let props of contact">{{ props.name }}</div> -->
   </div>
 </div>

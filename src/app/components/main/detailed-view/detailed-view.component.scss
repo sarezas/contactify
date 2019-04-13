@@ -15,6 +15,20 @@
     max-width: 16rem;
 }
 
+.card__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px !important;
+    width: 180px !important;
+}
+
+.card__spinner {
+    margin-top: 1rem;
+    font-size: 11rem;
+    color: rgb(112, 175, 177);
+}
+ 
 .card-img-top {
     height: 180px !important;
     width: 180px !important;
