@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-9 contacts--list">
             <app-contact-list
-                (sortContacts)="handleSorting($event)"
+                (sortContacts)="handleSorting()"
                 (selectedC)="loadContactDetails($event)"
                 [contacts]="cl"
                 [sortedAZ]="sortedAZ"
