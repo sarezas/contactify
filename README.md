@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
 ## Live example
-Check out the live project hosted at https://contactify-sm.firebaseapp.com.
+For testing purposes check out the live project hosted at https://contactify-sm.firebaseapp.com.
 
 ## Responsive design
 
