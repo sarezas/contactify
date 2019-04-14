@@ -3,26 +3,36 @@
     <img *ngIf="!isLoading && !contactLoaded" src="../../../../assets/images/unisex-profile-blue.png"
       class="card-img-top not-selected">
     <img *ngIf="contactLoaded" src="../../../../assets/images/userpic.jpg" class="card-img-top">
-    <i *ngIf="isLoading" class="fas fa-spinner fa-spin card__spinner"></i>
+    <i *ngIf="isLoading" class="fas fa-compact-disc fa-spin card__spinner"></i>
   </div>
   <div class="row card-body">
     <div class="col-md-5 card-body__header">
-      <p class="card-text">Name:</p>
-      <p class="card-text">Surname:</p>
-      <p class="card-text">City:</p>
-      <p class="card-text">Email:</p>
-      <p class="card-text">Phone:</p>
+      <p class="card-text card__header--text">Name:</p>
+      <p class="card-text card__header--text">Surname:</p>
+      <p class="card-text card__header--text">City:</p>
+      <p class="card-text card__header--text">Email:</p>
+      <p class="card-text card__header--text">Phone:</p>
     </div>
     <div class="col-md-7 card-body__contact-details" *ngFor="let props of contact">
-      <p *ngIf="!contactLoaded" class="card-text"><i>...</i></p>
+      <p *ngIf="!contactLoaded" class="card-text">
+        <i class="fas fa-compact-disc fa-spin card__header--icon"></i>
+      </p>
       <p *ngIf="contactLoaded" class="card-text">{{ props.name }}</p>
-      <p *ngIf="!contactLoaded" class="card-text"><i>...</i></p>
+      <p *ngIf="!contactLoaded" class="card-text">
+        <i class="fas fa-compact-disc fa-spin card__header--icon"></i>
+      </p>
       <p *ngIf="contactLoaded" class="card-text">{{ props.surname }}</p>
-      <p *ngIf="!contactLoaded" class="card-text"><i>...</i></p>
+      <p *ngIf="!contactLoaded" class="card-text">
+        <i class="fas fa-compact-disc fa-spin card__header--icon"></i>
+      </p>
       <p *ngIf="contactLoaded" class="card-text">{{ props.city }}</p>
-      <p *ngIf="!contactLoaded" class="card-text"><i>...</i></p>
+      <p *ngIf="!contactLoaded" class="card-text">
+        <i class="fas fa-compact-disc fa-spin card__header--icon"></i>
+      </p>
       <p *ngIf="contactLoaded" class="card-text">{{ props.email }}</p>
-      <p *ngIf="!contactLoaded" class="card-text"><i>...</i></p>
+      <p *ngIf="!contactLoaded" class="card-text">
+        <i class="fas fa-compact-disc fa-spin card__header--icon"></i>
+      </p>
       <p *ngIf="contactLoaded" class="card-text">{{ props.phone }}</p>
     </div>
   </div>

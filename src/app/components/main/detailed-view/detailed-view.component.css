@@ -36,8 +36,8 @@
 }
 
 .card__spinner {
-  margin-top: 1rem;
-  font-size: 11rem;
+  margin-top: 1.1rem;
+  font-size: 11.5rem;
   color: #70afb1;
 }
 
@@ -61,6 +61,15 @@
       flex-shrink: inherit;
   white-space: nowrap;
   fill: #000;
+}
+
+.card__header--text {
+  margin-right: .25rem;
+}
+
+.card__header--icon {
+  margin-left: 2rem;
+  color: #375758;
 }
 
 .card-body__contact-details {
