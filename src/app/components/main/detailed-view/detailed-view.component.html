@@ -1,6 +1,7 @@
 <div class="card contacts__card">
   <div class="card__image">
-    <img *ngIf="!isLoading && !contactLoaded" src="../../../../assets/images/unisex-profile-blue.png" class="card-img-top not-selected">
+    <img *ngIf="!isLoading && !contactLoaded" src="../../../../assets/images/unisex-profile-blue.png"
+      class="card-img-top not-selected">
     <img *ngIf="contactLoaded" src="../../../../assets/images/userpic.jpg" class="card-img-top">
     <i *ngIf="isLoading" class="fas fa-spinner fa-spin card__spinner"></i>
   </div>

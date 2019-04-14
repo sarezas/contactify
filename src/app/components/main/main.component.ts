@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { ContactsState } from 'src/app/interfaces/contacts.state';
 import * as contactsActions from '../../ngrx-store/actions/contacts.actions';
 import { Contact } from '../../interfaces/contact';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -22,7 +21,7 @@ export class MainComponent implements OnInit {
   sortedZA: boolean;
   sorted = false;
 
-  constructor(private store: Store<ContactsState>, private api: ApiService) {
+  constructor(private store: Store<ContactsState>) {
     this.contacts$ = this.store.select('contacts');
     this.contacts$.subscribe((contacts: Contact[]) => {
       this.cl = contacts['contacts'];

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../../../interfaces/contact';
 import { NgForm } from '@angular/forms';
 
@@ -9,11 +9,11 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactListComponent implements OnInit {
   @Input() contacts: Contact[];
-  @Output() sortContacts = new EventEmitter<string>();
-  @Output() selectedC = new EventEmitter<Contact>();
   @Input() sortedAZ: boolean;
   @Input() sortedZA: boolean;
   @Input() filterForm: NgForm;
+  @Output() sortContacts = new EventEmitter<string>();
+  @Output() selectedC = new EventEmitter<Contact>();
 
   constructor() { }
 

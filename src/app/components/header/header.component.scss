@@ -1,31 +1,4 @@
-$desktop-s: 1024px;
-$desktop-m: 1366px;
-$desktop-l: 1440px;
-$desktop-xl: 1920px;
-
-@mixin desktop-s {
-    @media (min-width: #{$desktop-s}) {
-        @content;
-    }
-}
-
-@mixin desktop-m {
-  @media (min-width: #{$desktop-m}) {
-      @content;
-  }
-}
-
-@mixin desktop-l {
-  @media (min-width: #{$desktop-l}) {
-      @content;
-  }
-}
-
-@mixin desktop-xl {
-  @media (min-width: #{$desktop-xl}) {
-      @content;
-  }
-}
+@import '../../variables';
 
 .borders {
   border: 2px solid rgba(54, 54, 54, 0.788) !important;
@@ -72,7 +45,6 @@ $desktop-xl: 1920px;
   text-transform: uppercase;
 }
 
-
 .header__menu {
   padding-left: 0;
   padding-right: 0;
@@ -98,6 +70,7 @@ $desktop-xl: 1920px;
 .button__dashboard {
   border-radius: 25px 0 0 25px !important;
 }
+
 .button__notifications {
   border-radius: 0 25px 25px 0 !important;
 }
@@ -163,10 +136,6 @@ $desktop-xl: 1920px;
   border: none !important;
   background-color: rgb(11, 146, 190);
 }
-
-// .dropdown-menu:active {
-//   background-color: rgb(11, 146, 190);
-// }
 
 .dropdown-menu:after {
   content: '';
