@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
   searchCity = 'All';
+  checkbox: any;
   @Output() activityValChange = new EventEmitter<boolean>();
   @Output() filterValChange = new EventEmitter<NgForm>();
   @Output() nameValChange = new EventEmitter<string>();
