@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
+## Live example
+Check out the live project hosted at https://contactify-sm.firebaseapp.com.
+
 ## Responsive design
 
 Contactify is designed for 1024px, 1366px, 1440px and 1920px width screens.
