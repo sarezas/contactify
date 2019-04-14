@@ -32,6 +32,10 @@
     box-shadow: 0 6px 6px -2px rgb(43, 43, 43);
 }
 
+.contacts__detailed-view {
+    padding-left: .5rem;
+}
+
 @include desktop-s {
     .dashboard--wrapper {
         padding: 0 2em;

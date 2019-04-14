@@ -1,15 +1,25 @@
 <div class="container-fluid dashboard--wrapper">
-    <app-dashboard (nameValChange)="filterCLByName($event)" (filterValChange)="filterCLByActivityAndCity($event)">
+    <app-dashboard
+        (nameValChange)="filterCLByName($event)"
+        (filterValChange)="filterCLByActivityAndCity($event)">
     </app-dashboard>
 </div>
 <div class="container-fluid contacts--wrapper">    
     <div class="row contacts">
         <div class="col-md-3 contacts__detailed-view">
-            <app-detailed-view [contact]="selectedContact" [isLoading]="loading"></app-detailed-view>
+            <app-detailed-view
+                [contact]="selectedContact"
+                [contactLoaded]="contactLoaded"
+                [isLoading]="loading">
+            </app-detailed-view>
         </div>
         <div class="col-md-9 contacts--list">
-            <app-contact-list [contacts]="cl" (sortContacts)="handleSorting($event)"
-                (selectedC)="loadContactDetails($event)" [sortedAZ]="sortedAZ" [sortedZA]="sortedZA">
+            <app-contact-list
+                (sortContacts)="handleSorting($event)"
+                (selectedC)="loadContactDetails($event)"
+                [contacts]="cl"
+                [sortedAZ]="sortedAZ"
+                [sortedZA]="sortedZA">
             </app-contact-list>
         </div>
     </div>

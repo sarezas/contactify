@@ -43,6 +43,10 @@
           box-shadow: 0 6px 6px -2px #2b2b2b;
 }
 
+.contacts__detailed-view {
+  padding-left: .5rem;
+}
+
 @media (min-width: 1024px) {
   .dashboard--wrapper {
     padding: 0 2em;

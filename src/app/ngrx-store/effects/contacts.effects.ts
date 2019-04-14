@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Store } from '@ngrx/store';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { map, switchMap, mergeMap, catchError, withLatestFrom, filter, tap, delay, exhaustMap } from 'rxjs/operators';
+import { map, switchMap, catchError, withLatestFrom } from 'rxjs/operators';
 import { Observable, from, of } from 'rxjs';
 import * as contactsActions from '../actions/contacts.actions';
 import { ContactsState } from 'src/app/interfaces/contacts.state';
@@ -13,7 +13,6 @@ export type Action = contactsActions.Actions;
 
 @Injectable()
 export class ContactsEffects {
-    clFilteredByName: Contact[];
     constructor(private actions: Actions, private api: ApiService, private store: Store<ContactsState>) { }
 
     @Effect()
@@ -151,6 +150,7 @@ export class ContactsEffects {
             const selectedId = action.payload;
             return this.api.loadSelectedContact(selectedId)
                 .then((data: Contact) => {
+                    // this.api.getPicture();
                     return {
                         type: 'LOAD_SELECTED_SUCCESS',
                         payload: data
@@ -160,7 +160,4 @@ export class ContactsEffects {
         })
     );
 
-    DOMEffect() {
-        console.log();
-    }
 }

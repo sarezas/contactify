@@ -7,4 +7,5 @@ export class ContactsState {
     readonly sortedAZ: boolean;
     readonly sortedZA: boolean;
     readonly loading: boolean;
+    readonly contactLoaded: boolean;
 }

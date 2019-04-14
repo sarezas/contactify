@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Contact } from '../interfaces/contact';
@@ -26,7 +26,7 @@ export class ApiService {
         }
       })
       .then(resp => resp)
-      .catch(err => err);
+      .catch(err => console.log(err));
   }
 
   filterContactsByCity(filterStr: string): any {
@@ -35,7 +35,7 @@ export class ApiService {
       .then((contacts: Contact[]) => {
         return contacts.filter(contact => contact.city.toLowerCase() === filterStr.toLowerCase());
       })
-      .catch(err => err);
+      .catch(err => console.log(err));
   }
 
   filterContactsByName(filterStr: string): any {
@@ -44,7 +44,7 @@ export class ApiService {
       .then((contacts: Contact[]) => {
         return contacts.filter(contact => contact.name.toLowerCase().includes(filterStr.toLowerCase()));
       })
-      .catch(err => err);
+      .catch(err => console.log(err));
   }
 
   loadSelectedContact(id: number): any {
@@ -55,6 +55,14 @@ export class ApiService {
         .then((contacts: Contact[]) => {
           return contacts.filter((contact: Contact) => contact.id === id);
         })
-        .catch(err => err);
+        .catch(err => console.log(err));
   }
+
+  // getPicture() {
+  //   console.log('service getPicture()');
+  //   return this.http.get('../../assets/images/userpic.jpg')
+  //     .subscribe(data => {
+  //       console.log(data);
+  //     });
+  // }
 }

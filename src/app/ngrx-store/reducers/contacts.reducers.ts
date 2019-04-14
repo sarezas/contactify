@@ -9,7 +9,8 @@ const initialState: ContactsState = {
     selectedContact: null,
     sortedAZ: false,
     sortedZA: false,
-    loading: false
+    loading: false,
+    contactLoaded: false
 };
 
 export function ContactsReducer(state = initialState, action: contactsActions.Actions): ContactsState {
@@ -141,7 +142,8 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
                 selectedContact: state.selectedContact,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA,
-                loading: true
+                loading: true,
+                contactLoaded: false
             };
         }
         case contactsActions.LOAD_SELECTED_SUCCESS: {
@@ -151,7 +153,8 @@ export function ContactsReducer(state = initialState, action: contactsActions.Ac
                 selectedContact: action.payload,
                 sortedAZ: state.sortedAZ,
                 sortedZA: state.sortedZA,
-                loading: false
+                loading: false,
+                contactLoaded: true
             };
         }
         default:

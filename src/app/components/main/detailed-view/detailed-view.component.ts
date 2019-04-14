@@ -9,6 +9,7 @@ import { Contact } from 'src/app/interfaces/contact';
 export class DetailedViewComponent implements OnInit {
   @Input() contact: Contact;
   @Input() isLoading: false;
+  @Input() contactLoaded: boolean;
 
   constructor() { }
 

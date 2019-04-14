@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ContactsState } from 'src/app/interfaces/contacts.state';
 import * as contactsActions from '../../ngrx-store/actions/contacts.actions';
 import { Contact } from '../../interfaces/contact';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -16,16 +17,18 @@ export class MainComponent implements OnInit {
   @Input() cl: Contact[];
   @Input() selectedContact: Contact;
   @Input() loading: boolean;
+  @Input() contactLoaded: boolean;
   sortedAZ: boolean;
   sortedZA: boolean;
   sorted = false;
 
-  constructor(private store: Store<ContactsState>) {
+  constructor(private store: Store<ContactsState>, private api: ApiService) {
     this.contacts$ = this.store.select('contacts');
     this.contacts$.subscribe((contacts: Contact[]) => {
       this.cl = contacts['contacts'];
       this.selectedContact = contacts['selectedContact'];
       this.loading = contacts['loading'];
+      this.contactLoaded = contacts['contactLoaded'];
       this.sortedAZ = contacts['sortedAZ'];
       this.sortedZA = contacts['sortedZA'];
     });
@@ -38,16 +41,12 @@ export class MainComponent implements OnInit {
   filterCLByActivityAndCity(form: any) {
     const activity = form.checkbox;
     const city = form.searchCity;
-    // if city all and activity false
     if (city === 'All' && (activity === undefined || activity === false)) {
       this.store.dispatch(new contactsActions.GetAllContacts());
-    // if city all and activity true
     } else if (city === 'All' && activity === true) {
       this.store.dispatch(new contactsActions.ShowActiveOnly(city));
-    // if city any and activity false
     } else if (city !== 'All' && (activity === undefined || activity === false)) {
       this.store.dispatch(new contactsActions.FilterByCity(city));
-    // if city any and activity true
     } else if (city !== 'All' && activity === true) {
       this.store.dispatch(new contactsActions.ShowActiveOnly(city));
     }
