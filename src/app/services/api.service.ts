@@ -1,8 +1,8 @@
-import { Injectable, ElementRef, Renderer2 } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 import { Contact } from '../interfaces/contact';
-import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getAllContacts(): any {
-    return this.http.get<any>(this.path);
+    return this.http.get<Contact[]>(this.path);
   }
 
   filterContactsByActivity(filterStr: string): any {
@@ -57,12 +57,4 @@ export class ApiService {
         })
         .catch(err => console.log(err));
   }
-
-  // getPicture() {
-  //   console.log('service getPicture()');
-  //   return this.http.get('../../assets/images/userpic.jpg')
-  //     .subscribe(data => {
-  //       console.log(data);
-  //     });
-  // }
 }
